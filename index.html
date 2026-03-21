@@ -52,18 +52,17 @@
 <!-- Projects Section -->
 <section id="projects" class="section">
     <h2 class="section-title">Projects</h2>
-    <p class="section-subtitle">Data-driven tools for financial analysis</p>
+    <p class="section-subtitle">Data-driven quantitative finance tools</p>
 
+    <h3 class="category-title">Macro & Low Frequency</h3>
     <div class="projects-grid">
         <!-- Project 1: Market Regime Monitor -->
         <article class="project-card featured">
-            <div class="card-badge">Live</div>
-            <div class="card-icon">📊</div>
-            <h3 class="card-title">Cross-Asset Market Regime Monitor</h3>
+            <div class="card-badge">Live (Daily)</div>
+            <div class="card-icon">🌍</div>
+            <h3 class="card-title">Global Macro Monitor</h3>
             <p class="card-description">
-                Real-time dashboard classifying the macroeconomic environment into five regimes
-                (Goldilocks, Overheating, Stagflation, Reflation, Deflation) and tracking
-                22 cross-asset instruments across equities, bonds, commodities, and FX.
+                Comprehensive real-time dashboard analyzing sovereign yield curves, futures term structures, G10 FX cross-rates, and tracking 22 cross-asset instruments to inform strategic asset allocation.
             </p>
             <div class="card-tech">
                 <span class="tech-tag">Python</span>
@@ -81,18 +80,65 @@
                 </a>
             </div>
         </article>
+    </div>
 
-        <!-- Project 2: Placeholder -->
+    <h3 class="category-title" style="margin-top: 4rem;">Algorithmic Execution & Real-Time Data</h3>
+    <div class="projects-grid">
+        <!-- Project 2: High Frequency Dashboard -->
         <article class="project-card coming-soon">
-            <div class="card-badge muted">Coming Soon</div>
-            <div class="card-icon">🧪</div>
-            <h3 class="card-title">Next Project</h3>
+            <div class="card-badge muted">In Development</div>
+            <div class="card-icon">⚡</div>
+            <h3 class="card-title">High-Frequency Market Engine</h3>
             <p class="card-description">
-                More quantitative finance projects are in development.
-                Check back soon or follow me on GitHub for updates.
+                Real-time streaming dashboard processing tick-level and minute-bar market data via WebSockets (Alpaca/Polygon), designed for intraday signal generation and live execution monitoring.
             </p>
             <div class="card-tech">
-                <span class="tech-tag">TBD</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">WebSockets</span>
+                <span class="tech-tag">AsyncIO</span>
+            </div>
+            <div class="card-links">
+                <a href="https://github.com/FredericBANDEIRA" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">
+                    Follow on GitHub
+                </a>
+            </div>
+        </article>
+    </div>
+
+    <h3 class="category-title" style="margin-top: 4rem;">Quantitative Portfolio Management & Structuring</h3>
+    <div class="projects-grid">
+        <!-- Project 3: Quant Portfolio Strategy -->
+        <article class="project-card">
+            <div class="card-badge muted">Academic Project</div>
+            <div class="card-icon">🧠</div>
+            <h3 class="card-title">Multi-Asset ETF Optimization Strategy</h3>
+            <p class="card-description">
+                Quantitative backtesting engine isolating alpha using Fama-French factors and CAPM. Features a proprietary portfolio optimizer maximizing the Sharpe Ratio under strict diversification constraints.
+            </p>
+            <div class="card-tech">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Pandas</span>
+                <span class="tech-tag">SciPy Opt</span>
+            </div>
+            <div class="card-links">
+                <a href="https://github.com/FredericBANDEIRA" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">
+                    Follow on GitHub
+                </a>
+            </div>
+        </article>
+
+        <!-- Project 4: Options Pricer -->
+        <article class="project-card coming-soon">
+            <div class="card-badge muted">In Development</div>
+            <div class="card-icon">📉</div>
+            <h3 class="card-title">Options & Structured Products Pricer</h3>
+            <p class="card-description">
+                High-performance pricing engine for vanilla and exotic options using Monte Carlo simulations. Generates real-time implied volatility surfaces using live options chain data.
+            </p>
+            <div class="card-tech">
+                <span class="tech-tag">C++</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">QuantLib</span>
             </div>
             <div class="card-links">
                 <a href="https://github.com/FredericBANDEIRA" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">
@@ -109,28 +155,26 @@
     <p class="section-subtitle">Open to opportunities and collaborations</p>
 
     <div class="contact-grid">
-        <a href="mailto:your.email@example.com" class="contact-card">
+        <a href="mailto:frederic.bandeira@gmail.com" class="contact-card">
             <div class="contact-icon">✉️</div>
             <h4>Email</h4>
-            <p>your.email@example.com</p>
+            <p>frederic.bandeira@gmail.com</p>
         </a>
-        <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener" class="contact-card">
+        <a href="https://www.linkedin.com/in/frédéric-bandeira-a41017153" target="_blank" rel="noopener" class="contact-card">
             <div class="contact-icon">💼</div>
             <h4>LinkedIn</h4>
-            <p>linkedin.com/in/your-profile</p>
+            <p>linkedin/frédéric-bandeira</p>
         </a>
-        <a href="tel:+33600000000" class="contact-card">
+        <a href="tel:+33601057016" class="contact-card">
             <div class="contact-icon">📱</div>
             <h4>Phone</h4>
-            <p>+33 6 00 00 00 00</p>
+            <p>+33 6 01 05 70 16</p>
         </a>
-        <!-- Resume card — uncomment and add resume.pdf when ready
-        <a href="resume.pdf" target="_blank" class="contact-card">
+       <a href="BANDEIRA_Frédéric_Resume.pdf" target="_blank" rel="noopener" class="contact-card">
             <div class="contact-icon">📄</div>
             <h4>Resume</h4>
-            <p>Download PDF</p>
+            <p>View PDF</p>
         </a>
-        -->
     </div>
 </section>
 
