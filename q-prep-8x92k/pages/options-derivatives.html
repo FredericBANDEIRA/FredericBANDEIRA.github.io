@@ -35,9 +35,9 @@
     <div class="page-stats">
       <div class="stat"><span class="stat-num">45</span> questions</div>
       <div class="stat-divider"></div>
-      <div class="stat"><span class="stat-num">8</span> answered</div>
+      <div class="stat"><span class="stat-num">16</span> answered</div>
       <div class="stat-divider"></div>
-      <div class="stat"><span class="stat-num">37</span> remaining</div>
+      <div class="stat"><span class="stat-num">29</span> remaining</div>
     </div>
 
     <!-- ==================== SECTION 1: Call/Put Basics ==================== -->
@@ -598,41 +598,148 @@
       <div class="question-card">
         <div class="q-header">
           <div class="q-header-left"><span class="q-number">Q-OD-09</span></div>
-          <span class="q-flag unanswered">Unanswered</span>
+          <span class="q-flag answered">Answered</span>
         </div>
         <div class="q-text">If interest rates increase, what happens to the price of a call? Why? (Explain economically, not just from the formula.)</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 The Spot-Forward Parity / Carry Explanation (10/10 Quant Answer)</h4>
+            <p>When interest rates increase, the price of a Call option <strong>increases</strong> (&uarr;, positive Rho <i>&rho; &gt; 0</i>) while the price of a Put option <strong>decreases</strong> (&darr;, negative Rho <i>&rho; &lt; 0</i>).</p>
+            <p>Instead of just reciting the Black-Scholes formula or discounting the strike price, the cleanest economic framework to explain <em>why</em> to an interviewer is via <strong>Spot-Forward Parity</strong>:</p>
+            
+            <div style="font-family: monospace; font-size: 0.95rem; color: var(--accent-blue); background: rgba(15, 23, 42, 0.85); padding: 10px; border-radius: var(--radius-sm); border-left: 3px solid var(--accent-blue); margin: 8px 0;">Forward Price: F<sub>T</sub> = S<sub>0</sub> · e<sup>(r − q)T</sup></div>
+
+            <ul>
+              <li><strong>The Forward Channel:</strong> When interest rate <i>r</i> increases, the expected forward price of the stock (<i>F<sub>T</sub></i>) strictly rises!</li>
+              <li><strong>Economic / Cashflow Intuition:</strong> Buying a call gives you the right to acquire the underlying stock at maturity <i>T</i> without paying for it today at time <i>t = 0</i>. Instead of buying the stock outright (which ties up cash <i>S<sub>0</sub></i> or requires borrowing at rate <i>r</i>), you keep your cash deposited in the bank earning interest rate <i>r</i>! The higher the interest rate, the greater the carry / interest earned on your cash reserve during the option's life. Because you defer paying the fixed strike hurdle <i>K</i> while your alternative cash balance grows faster, the <strong>Call becomes more valuable (&uarr;)</strong>.</li>
+              <li><strong>Conversely for Puts:</strong> Holding a put means you are waiting until maturity <i>T</i> to <em>receive</em> cash <i>K</i> in exchange for stock. Higher interest rates heavily penalize future cash inflows due to heavier discounting (<i>PV(K) = K e<sup>−rT</sup> &darr;</i>), and you forgo the interest you could have earned if you sold the stock for cash right now. Thus, <strong>Puts lose value (&darr;)</strong>.</li>
+            </ul>
+
+            <div class="pro-tip-box">
+              <strong>💡 Interview Pro-Tip:</strong> Always mention that Rho (<i>&rho;</i>) is generally the <strong>least influential Greek</strong> for short-dated options (e.g., 1-month options), but becomes extremely powerful for <strong>long-dated options / LEAPS</strong> (e.g., 2 to 5 years maturity) where compounding carry over time <i>T</i> dominates the valuation!
+            </div>
+          </div>
+        </details>
       </div>
 
       <div class="question-card">
         <div class="q-header">
           <div class="q-header-left"><span class="q-number">Q-OD-10</span></div>
-          <span class="q-flag unanswered">Unanswered</span>
+          <span class="q-flag answered">Answered</span>
         </div>
         <div class="q-text">How do dividends affect the price of a call option? And a put option? Why?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Immediate Price Impact & Forward Channel</h4>
+            <p>If a stock announces an unexpectedly high dividend (or higher continuous dividend yield <i>q &uarr;</i>), the price of its Call options <strong>decreases</strong> (&darr;) immediately, while the price of its Put options <strong>increases</strong> (&uarr;).</p>
+            
+            <h4>The Economic & Mathematical Mechanism:</h4>
+            <ul>
+              <li><strong>Forward Price Drop across Ex-Dividend Dates:</strong> On the ex-dividend date, a stock price mechanically drops by the dividend amount <i>D</i> because the cash leaves the company's balance sheet. Mathematically, the forward price is:
+                <div style="font-family: monospace; color: #10B981; margin: 6px 0;">F<sub>T</sub> = (S<sub>0</sub> − PV(Dividends)) · e<sup>rT</sup> &nbsp;&nbsp;or&nbsp;&nbsp; F<sub>T</sub> = S<sub>0</sub> · e<sup>(r − q)T</sup></div>
+              </li>
+              <li><strong>Call Impact (&darr;):</strong> Call holders <strong>do not receive cash dividends</strong>. When a surprise dividend is announced, the present value of future stock prices (<i>F<sub>T</sub></i>) falls relative to the fixed strike <i>K</i>. The probability of ending deep in-the-money drops, causing Call prices to fall immediately.</li>
+              <li><strong>Put Impact (&uarr;):</strong> Put holders benefit when the stock falls. A higher dividend means the spot price will drop across the ex-dividend date, increasing the probability and magnitude of the Put ending in-the-money. Thus, Put prices jump immediately.</li>
+            </ul>
+
+            <div class="pro-tip-box">
+              <strong>🎯 Trading Desk & Market Making Gotcha (How to score bonus points):</strong><br>
+              1. <strong>Early Exercise Risk:</strong> A surprise dividend spike dramatically increases the optimal probability of <strong>early exercising American Call options</strong> right on the cum-dividend date to capture the dividend before the stock drops!<br>
+              2. <strong>Are options dividend-protected?</strong> Standard ordinary cash dividends are <strong>not</strong> adjusted on exchange-traded options (so option holders absorb the full price drop/gain). Only <em>extraordinary or special dividends</em> (typically &gt; 10% of stock value) trigger exchange adjustments (adjusting strike <i>K</i> and multiplier) by clearinghouses like OCC or Eurex to protect option holders.
+            </div>
+          </div>
+        </details>
       </div>
 
       <div class="question-card">
         <div class="q-header">
           <div class="q-header-left"><span class="q-number">Q-OD-11</span></div>
-          <span class="q-flag unanswered">Unanswered</span>
+          <span class="q-flag answered">Answered</span>
         </div>
         <div class="q-text">Why is an option with high volatility more expensive than one with low volatility, all else being equal?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 The Bounded Downside / Payoff Asymmetry Explanation</h4>
+            <p>A classic beginner mistake is saying "higher volatility means the option is more likely to end in-the-money." <strong>This is absolutely false.</strong> Under lognormal distribution, higher volatility pushes the median and mode of the distribution down, which can actually <em>decrease</em> the pure probability of an ATM/OTM call ending ITM.</p>
+            
+            <p>The true reason volatility increases option prices is <strong>Payoff Asymmetry (Convexity)</strong>:</p>
+            <ul>
+              <li><strong>Bounded Downside:</strong> As an option buyer, your maximum loss is strictly capped at the premium paid ($0 intrinsic value), no matter how far out-of-the-money the underlying goes.</li>
+              <li><strong>Unbounded Upside:</strong> Your potential gain on the upside is theoretically unlimited (for calls) or very large (for puts).</li>
+              <li><strong>The Volatility Effect:</strong> Higher volatility widens <em>both</em> tails of the probability distribution (fatter tails). The underlying asset is more likely to experience extreme moves in both directions. Because you are fully protected from extreme moves in the "wrong" direction (loss capped at 0) but fully participate in extreme moves in the "right" direction, the Expected Value (probability × magnitude) of the payoff is strictly higher!</li>
+            </ul>
+
+            <div class="pro-tip-box">
+              <strong>💡 Interview Pro-Tip:</strong> In one sentence: <em>"We don't pay for a higher probability of winning; we pay for the fact that when we do win, the magnitude of the win is astronomically larger, while our losses remain strictly floored at zero."</em>
+            </div>
+          </div>
+        </details>
       </div>
 
       <div class="question-card">
         <div class="q-header">
           <div class="q-header-left"><span class="q-number">Q-OD-12</span></div>
-          <span class="q-flag unanswered">Unanswered</span>
+          <span class="q-flag answered">Answered</span>
         </div>
         <div class="q-text">You have two ATM calls with the same strike and spot but different maturities: 2 years and 6 months. Do they both have a delta of 0.5? Which one has the higher delta?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 The Lognormal Skew Brainteaser</h4>
+            <p>This is a famous Quant brainteaser that tests your understanding of the Black-Scholes <i>d<sub>1</sub></i> term and lognormal distributions.</p>
+            
+            <ol>
+              <li><strong>Is ATM Delta exactly 0.50? No.</strong><br>
+              In Black-Scholes, Call Delta is <i>N(d<sub>1</sub>)</i>. Stock prices follow a lognormal distribution (bounded by 0, unbounded to the upside), meaning the distribution is <strong>right-skewed</strong>. Because of this right-skew (the geometric drift component <i>+&frac12;&sigma;<sup>2</sup>T</i>), the center of mass shifts. For an ATM call (<i>S = K</i>) with zero rates/dividends, <i>d<sub>1</sub> = &frac12;&sigma;&radic;T</i>. Since <i>d<sub>1</sub></i> is strictly positive, <i>N(d<sub>1</sub>)</i> is <strong>strictly greater than 0.50</strong>.</li>
+              
+              <li><strong>Which maturity has the higher Delta? The 2-Year Call.</strong><br>
+              Since <i>d<sub>1</sub> = &frac12;&sigma;&radic;T</i> (assuming zero rates/dividends for simplicity), as maturity <i>T</i> increases, <i>d<sub>1</sub></i> increases. As <i>d<sub>1</sub></i> increases, <i>N(d<sub>1</sub>)</i> gets larger. Therefore, the <strong>2-year ATM call has a higher Delta</strong> than the 6-month ATM call.</li>
+            </ol>
+
+            <div class="pro-tip-box">
+              <strong>💡 Intuition:</strong> Give a stock more time (2 years vs 6 months), and the lognormal positive skewness becomes much more pronounced (more time to compound up to infinity, but still bounded at 0). The expected forward price of the stock is pulled higher by that massive right tail, thus increasing the expected payoff and the Delta of the Call.
+            </div>
+          </div>
+        </details>
       </div>
 
       <div class="question-card">
         <div class="q-header">
           <div class="q-header-left"><span class="q-number">Q-OD-13</span></div>
-          <span class="q-flag unanswered">Unanswered</span>
+          <span class="q-flag answered">Answered</span>
         </div>
         <div class="q-text">Compare a call ATM and a put ATM with 1-year maturity on a stock that pays no dividend. Which costs more if rates are zero? And if rates are 10%?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 The Put-Call Parity Application</h4>
+            <p>This is a classic question that requires you to use the <strong>Put-Call Parity</strong> equation to compare prices directly. The equation is: <br>
+            <span style="font-family: monospace; color: var(--accent-blue); background: rgba(15, 23, 42, 0.5); padding: 4px 8px; border-radius: 4px;">C − P = S − K · e<sup>−rT</sup></span></p>
+
+            <ul>
+              <li><strong>Scenario 1: Rates are 0% (<i>r = 0</i>)</strong><br>
+              If <i>r = 0</i>, then <i>e<sup>−0</sup> = 1</i>. The equation becomes <i>C − P = S − K</i>.<br>
+              Since the options are At-The-Money (ATM), <i>S = K</i>. Therefore, <i>C − P = 0</i>, which means <strong>Call Price = Put Price</strong>. Without the time value of money, there is no carry advantage to deferring the stock purchase.</li>
+              
+              <li><strong>Scenario 2: Rates are 10% (<i>r &gt; 0</i>)</strong><br>
+              If <i>r = 10%</i>, the present value of the strike price is heavily discounted (<i>K · e<sup>−0.10</sup> &lt; K</i>).<br>
+              The equation becomes <i>C − P = S − (something less than S)</i>, which means <i>C − P &gt; 0</i>.<br>
+              Therefore, <strong>Call Price &gt; Put Price</strong>.</li>
+            </ul>
+
+            <div class="pro-tip-box">
+              <strong>💡 Interview Pro-Tip:</strong> The fastest way to answer this intuitively without algebra is via the <strong>Forward Price</strong>. When <i>r &gt; 0</i>, the forward price <i>F = S · e<sup>rT</sup></i> is strictly greater than the spot price. Since the Forward price is higher than the ATM strike <i>K</i>, the Call is effectively "in-the-money" relative to the forward, making it more expensive than the Put.
+            </div>
+          </div>
+        </details>
       </div>
     </div>
 
@@ -643,25 +750,101 @@
       <div class="question-card">
         <div class="q-header">
           <div class="q-header-left"><span class="q-number">Q-OD-14</span></div>
-          <span class="q-flag unanswered">Unanswered</span>
+          <span class="q-flag answered">Answered</span>
         </div>
         <div class="q-text">State and explain the put-call parity. Write the formula with and without dividends.</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 The Core Equation of Option Pricing</h4>
+            <p>Put-Call Parity defines the strict mathematical relationship between the price of a European Call and a European Put with the exact same strike <i>K</i> and maturity <i>T</i>. It prevents arbitrage between the options market and the spot market.</p>
+            
+            <div style="font-family: monospace; font-size: 1rem; color: #10B981; background: rgba(15, 23, 42, 0.85); padding: 12px; border-radius: var(--radius-sm); border-left: 3px solid #10B981; margin: 12px 0;">
+              <strong>Without Dividends:</strong> C + K · e<sup>−rT</sup> = P + S<br>
+              <strong>With Dividends:</strong> C + K · e<sup>−rT</sup> = P + S · e<sup>−qT</sup>
+            </div>
+
+            <h4>Economic Explanation (The Replicating Portfolios)</h4>
+            <p>The equation states that two specific portfolios have the exact same payoff at maturity <i>T</i>, and therefore must cost the same today:</p>
+            <ul>
+              <li><strong>Left Side (Fiduciary Call): <i>C + K · e<sup>−rT</sup></i></strong><br>
+              You buy a Call option and deposit enough cash in the bank to perfectly cover the strike price at maturity. At expiration, if the stock goes up, you exercise the call and own the stock. If it goes down, the call expires worthless but you have cash <i>K</i>. Payoff = <i>max(S<sub>T</sub>, K)</i>.</li>
+              <li><strong>Right Side (Protective Put): <i>P + S</i></strong><br>
+              You buy the underlying stock and buy a Put option to protect against downside. At expiration, if the stock goes up, you keep the stock. If the stock crashes, the put guarantees you can sell it for <i>K</i>. Payoff = <i>max(S<sub>T</sub>, K)</i>.</li>
+            </ul>
+
+            <div class="pro-tip-box">
+              <strong>⚠️ Critical Condition:</strong> Put-Call parity strictly holds <strong>only for European options</strong>! For American options, because of the possibility of early exercise, the parity becomes an inequality boundary: <i>S − K &le; C − P &le; S − K · e<sup>−rT</sup></i>.
+            </div>
+          </div>
+        </details>
       </div>
 
       <div class="question-card">
         <div class="q-header">
           <div class="q-header-left"><span class="q-number">Q-OD-15</span></div>
-          <span class="q-flag unanswered">Unanswered</span>
+          <span class="q-flag answered">Answered</span>
         </div>
         <div class="q-text">How can you replicate a forward using options? What is a synthetic forward?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 The Synthetic Forward Structure</h4>
+            <p>To perfectly replicate a long forward contract (a commitment to buy the asset at price <i>K</i> at time <i>T</i>), you build a <strong>Synthetic Long Forward</strong> using European options by:</p>
+            <ul>
+              <li><strong>Buying (Long) a Call</strong> at strike <i>K</i> and maturity <i>T</i>.</li>
+              <li><strong>Selling (Short) a Put</strong> at the same strike <i>K</i> and maturity <i>T</i>.</li>
+            </ul>
+
+            <h4>Why the Payoff is Identical:</h4>
+            <p>At expiration <i>T</i>, there are only two scenarios:</p>
+            <ol>
+              <li>If <i>S<sub>T</sub> &gt; K</i>: The short put expires worthless. You exercise your long call and buy the asset for <i>K</i>.</li>
+              <li>If <i>S<sub>T</sub> &lt; K</i>: Your long call expires worthless. The put buyer exercises their option against you, forcing you to buy the asset for <i>K</i>.</li>
+            </ol>
+            <p>In both scenarios, you are <strong>forced to buy the asset exactly at price <i>K</i></strong>, which is the exact mathematical definition and payoff of a Long Forward contract <i>(S<sub>T</sub> − K)</i>.</p>
+
+            <div class="pro-tip-box">
+              <strong>💡 Interview Pro-Tip:</strong> You can quickly prove this using Put-Call parity. Rearrange <i>C − P = S − K · e<sup>−rT</sup></i>. The left side (<i>C − P</i>) is your Synthetic Forward position. The right side is the present value of a forward contract. If you set <i>K</i> equal to the forward price <i>F<sub>T</sub></i>, the cost of entering this synthetic position is exactly zero!
+            </div>
+          </div>
+        </details>
       </div>
 
       <div class="question-card">
         <div class="q-header">
           <div class="q-header-left"><span class="q-number">Q-OD-16</span></div>
-          <span class="q-flag unanswered">Unanswered</span>
+          <span class="q-flag answered">Answered</span>
         </div>
         <div class="q-text">I buy a call and sell a put at the same strike. What is my position? What are the delta and vega of this combined position?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Position: Synthetic Long Forward</h4>
+            <p>Buying a call (+C) and selling a put (−P) at the exact same strike and maturity creates a <strong>Synthetic Long Forward</strong>. (See Q-OD-15).</p>
+            
+            <h4>📌 The Delta and Vega Trap</h4>
+            <p>Interviewers ask this specific follow-up to test if you mechanically memorize Greeks or if you truly understand what the position represents.</p>
+            
+            <ul>
+              <li><strong>Delta is 1.0 (or 100):</strong><br>
+              A common trap is assuming the Delta is 0 because the options "cancel out." <strong>False!</strong><br>
+              A long call has a positive Delta (<i>+&Delta;<sub>C</sub></i>). A long put has a negative Delta (<i>−&Delta;<sub>P</sub></i>). Since you are <em>shorting</em> the put, your Delta becomes <i>−(−&Delta;<sub>P</sub>) = +&Delta;<sub>P</sub></i>.<br>
+              By Put-Call parity, the derivative with respect to Spot is <i>&Delta;<sub>Call</sub> − &Delta;<sub>Put</sub> = 1</i>. You have created a synthetic stock/forward position, so it behaves exactly like holding 1 share of the underlying asset. Therefore, <strong>Delta = 1.0</strong>.</li>
+              
+              <li><strong>Vega is 0:</strong><br>
+              A long call has positive Vega. A long put has positive Vega. Because European Call and Put Vegas are mathematically identical at the same strike and maturity (<i>Vega<sub>C</sub> = Vega<sub>P</sub></i>), buying the call (+Vega) and selling the put (−Vega) perfectly cancel each other out.<br>
+              Therefore, <strong>Vega = 0</strong>. The position has zero exposure to implied volatility.</li>
+            </ul>
+
+            <div class="pro-tip-box">
+              <strong>💡 Intuition:</strong> Since a Forward contract is a linear, delta-one product with zero optionality, it cannot have Vega. Since you successfully replicated a forward, your synthetic position must also be a linear delta-one product with zero Vega!
+            </div>
+          </div>
+        </details>
       </div>
 
       <div class="question-card">
