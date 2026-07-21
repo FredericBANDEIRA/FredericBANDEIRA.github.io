@@ -35,9 +35,9 @@
     <div class="page-stats">
       <div class="stat"><span class="stat-num">45</span> questions</div>
       <div class="stat-divider"></div>
-      <div class="stat"><span class="stat-num">16</span> answered</div>
+      <div class="stat"><span class="stat-num">28</span> answered</div>
       <div class="stat-divider"></div>
-      <div class="stat"><span class="stat-num">29</span> remaining</div>
+      <div class="stat"><span class="stat-num">17</span> remaining</div>
     </div>
 
     <!-- ==================== SECTION 1: Call/Put Basics ==================== -->
@@ -850,9 +850,32 @@
       <div class="question-card">
         <div class="q-header">
           <div class="q-header-left"><span class="q-number">Q-OD-17</span></div>
-          <span class="q-flag unanswered">Unanswered</span>
+          <span class="q-flag answered">Answered</span>
         </div>
         <div class="q-text">Would you prefer a forward or a call with strike 0? Why?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 The Funding Cost & Counterparty Risk Argument</h4>
+            <p>You would strongly prefer the <strong>Forward contract</strong>. Here is why:</p>
+            
+            <ul>
+              <li><strong>The Payoffs are Identical:</strong> A call option with strike <i>K = 0</i> has a payoff of <i>max(S<sub>T</sub> − 0, 0) = S<sub>T</sub></i>. A forward contract (if struck at a price of 0, essentially just buying the asset outright at maturity) gives you the asset. Both derivatives result in you owning the asset at maturity.</li>
+              <li><strong>The Premium (Cash Outflow Timing):</strong> 
+                <ul>
+                  <li><strong>Zero-Strike Call:</strong> You must pay the premium <em>upfront today (t=0)</em>. Since the payoff is strictly <i>S<sub>T</sub></i>, the premium is the present value of the stock, <i>S<sub>0</sub></i>. You are tying up your capital and losing out on the risk-free rate.</li>
+                  <li><strong>Forward Contract:</strong> Forward contracts have an initial value of strictly <strong>zero</strong>. You pay absolutely nothing today. You only exchange cash at maturity <i>T</i>.</li>
+                </ul>
+              </li>
+              <li><strong>Counterparty Risk:</strong> If you buy a zero-strike call, you pay the full stock price today to the option writer. If the writer defaults or goes bankrupt before maturity, you lose your entire investment. With a forward, no principal is exchanged upfront, minimizing counterparty credit risk.</li>
+            </ul>
+
+            <div class="pro-tip-box">
+              <strong>💡 Interview Pro-Tip:</strong> Time value of money (funding cost) and counterparty credit risk are the two most fundamental concepts in derivatives trading. Whenever asked to choose between two identical payoffs where one requires upfront cash and the other requires deferred cash, always choose the deferred payment to capture the "carry" (interest).
+            </div>
+          </div>
+        </details>
       </div>
     </div>
 
@@ -863,57 +886,228 @@
       <div class="question-card">
         <div class="q-header">
           <div class="q-header-left"><span class="q-number">Q-OD-18</span></div>
-          <span class="q-flag unanswered">Unanswered</span>
+          <span class="q-flag answered">Answered</span>
         </div>
         <div class="q-text">What are the assumptions of the Black-Scholes model? List all of them.</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 The 7 Pillars of Black-Scholes (1973)</h4>
+            <p>To derive the analytical solution for option pricing, Black and Scholes made several strict theoretical assumptions. You should be able to rattle these off quickly in an interview:</p>
+            
+            <ol>
+              <li><strong>Lognormal Distribution of Prices:</strong> Stock returns are normally distributed, meaning stock prices follow a Geometric Brownian Motion (GBM) with constant drift (&mu;) and constant volatility (&sigma;). Prices cannot be negative.</li>
+              <li><strong>Continuous Trading:</strong> Markets are open 24/7. Trading happens continuously in time, meaning prices move continuously without jumps or gaps.</li>
+              <li><strong>No Market Frictions:</strong> There are no transaction costs, no taxes, no bid-ask spreads, and assets are perfectly divisible (fractional shares exist).</li>
+              <li><strong>Constant Risk-Free Rate:</strong> The risk-free interest rate (<i>r</i>) is constant and known over the life of the option. Participants can borrow and lend unlimited amounts of cash at this exact same rate.</li>
+              <li><strong>Unrestricted Short Selling:</strong> Investors can short sell the underlying asset without penalty and have full use of the short sale proceeds.</li>
+              <li><strong>No Arbitrage:</strong> The market is perfectly efficient and free of riskless arbitrage opportunities.</li>
+              <li><strong>No Dividends (Original Model):</strong> The underlying asset pays no dividends during the life of the option. <em>(Note: Robert Merton extended the model in 1973 to account for a continuous dividend yield, q).</em></li>
+            </ol>
+
+            <div class="pro-tip-box">
+              <strong>💡 Interview Pro-Tip:</strong> The most heavily scrutinized assumption is #1 (Constant Volatility and Lognormal Returns). Interviewers will always ask a follow-up about why this is false in reality (volatility smiles/smirks, fat tails, jump risk). Be prepared to pivot directly into the realities of the volatility surface!
+            </div>
+          </div>
+        </details>
       </div>
 
       <div class="question-card">
         <div class="q-header">
           <div class="q-header-left"><span class="q-number">Q-OD-19</span></div>
-          <span class="q-flag unanswered">Unanswered</span>
+          <span class="q-flag answered">Answered</span>
         </div>
         <div class="q-text">Which of the Black-Scholes assumptions are false in reality? What are the practical implications?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 The Reality Check: Why Black-Scholes Fails</h4>
+            <p>Strictly speaking, <strong>every single assumption of the Black-Scholes model is false in reality</strong>. However, the most egregious and practically important failure is the assumption of <strong>constant volatility and lognormal returns</strong>.</p>
+            
+            <ul>
+              <li><strong>False Assumption: Constant Volatility.</strong><br>
+              In reality, volatility is not constant. It is stochastic (it changes over time) and exhibits "clustering" (high volatility periods are followed by high volatility, low by low).</li>
+              <li><strong>False Assumption: Lognormal Returns (Normal Distribution).</strong><br>
+              In reality, asset returns exhibit <em>fat tails</em> (excess kurtosis) and <em>negative skewness</em>. Market crashes happen far more frequently than a normal distribution predicts.</li>
+            </ul>
+
+            <h4>Practical Implications (The Volatility Smile)</h4>
+            <p>Because Black-Scholes assumes a normal distribution, it severely <strong>underestimates the probability of extreme tail events</strong> (market crashes). Therefore, if you price deep out-of-the-money (OTM) put options using the Black-Scholes formula, the model price will be much lower than the actual market price. </p>
+            <p>To force the Black-Scholes model to output the true market price of these OTM puts, traders have to plug in a much higher implied volatility. This creates the famous <strong>Volatility Skew / Smile</strong>, proving that the market assigns a higher probability to extreme events than the model does.</p>
+
+            <div class="pro-tip-box">
+              <strong>💡 Interview Pro-Tip:</strong> Also mention that continuous trading is false (markets close over the weekend, leading to gap risk) and frictionless markets are false (bid-ask spreads and transaction costs make continuous delta-hedging ruinously expensive).
+            </div>
+          </div>
+        </details>
       </div>
 
       <div class="question-card">
         <div class="q-header">
           <div class="q-header-left"><span class="q-number">Q-OD-20</span></div>
-          <span class="q-flag unanswered">Unanswered</span>
+          <span class="q-flag answered">Answered</span>
         </div>
         <div class="q-text">Give the closed-form Black-Scholes formula for pricing a call. What is the difference between N(d1) and N(d2)?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 The Formula</h4>
+            <p>For a non-dividend paying stock, the Black-Scholes formula for a European Call is:</p>
+            <div style="font-family: monospace; font-size: 1.1rem; color: #10B981; background: rgba(15, 23, 42, 0.85); padding: 12px; border-radius: var(--radius-sm); border-left: 3px solid #10B981; margin: 12px 0;">
+              C = S<sub>0</sub> · N(d<sub>1</sub>) − K · e<sup>−rT</sup> · N(d<sub>2</sub>)
+            </div>
+
+            <h4>📌 What do N(d1) and N(d2) actually mean?</h4>
+            <p>Both <i>N(d<sub>1</sub>)</i> and <i>N(d<sub>2</sub>)</i> are cumulative standard normal probabilities (ranging from 0 to 1). But they represent fundamentally different economic concepts:</p>
+            
+            <ul>
+              <li><strong>N(d<sub>2</sub>): The Risk-Neutral Probability of Exercising</strong><br>
+              <i>N(d<sub>2</sub>)</i> is simply the probability that the option finishes in-the-money (<i>S<sub>T</sub> &gt; K</i>) in a risk-neutral world. Therefore, the second term <i>K · e<sup>−rT</sup> · N(d<sub>2</sub>)</i> represents the expected present value of the cash you will pay at expiration to buy the stock.</li>
+              
+              <li><strong>N(d<sub>1</sub>): The Delta (and Conditional Expected Value)</strong><br>
+              <i>N(d<sub>1</sub>)</i> is the <strong>Delta</strong> of the call option (how much the option price moves for a $1 move in the stock). Economically, it represents the conditional expected value of the asset given that the option expires in-the-money. The first term <i>S<sub>0</sub> · N(d<sub>1</sub>)</i> is the expected present value of the stock you will receive.</li>
+            </ul>
+
+            <div class="pro-tip-box">
+              <strong>💡 Interview Pro-Tip:</strong> The entire formula can be read in plain English as: <strong>Call Price = [Expected PV of Stock Received] − [Expected PV of Cash Paid]</strong>. Understanding this structure is far more impressive to an interviewer than just blindly reciting the formula!
+            </div>
+          </div>
+        </details>
       </div>
 
       <div class="question-card">
         <div class="q-header">
           <div class="q-header-left"><span class="q-number">Q-OD-21</span></div>
-          <span class="q-flag unanswered">Unanswered</span>
+          <span class="q-flag answered">Answered</span>
         </div>
         <div class="q-text">Which is the only unknown variable in the Black-Scholes formula? How do you obtain it?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Implied Volatility</h4>
+            <p>The only unobservable unknown variable in the Black-Scholes model is <strong>Volatility (&sigma;)</strong>.</p>
+            <ul>
+              <li><strong>Observable Variables:</strong> Spot price (<i>S</i>), Strike (<i>K</i>), Time to maturity (<i>T</i>), and Risk-free rate (<i>r</i>) are all known, observable market parameters.</li>
+              <li><strong>The Option Price (C) is also observable!</strong> Because options trade actively on exchanges, we know the true market price of the option.</li>
+            </ul>
+
+            <h4>How to obtain it:</h4>
+            <p>Because we know the market price of the option (<i>C<sub>market</sub></i>), we plug it into the left side of the Black-Scholes equation. We then <strong>back-solve</strong> for &sigma;, which gives us the <strong>Implied Volatility</strong> (the volatility implied by the market price).</p>
+            <p>Since the Black-Scholes formula cannot be algebraically rearranged to isolate &sigma; (there is no closed-form inverse), we must solve for it numerically using root-finding algorithms, most notably the <strong>Newton-Raphson method</strong> or the Bisection method.</p>
+          </div>
+        </details>
       </div>
 
       <div class="question-card">
         <div class="q-header">
           <div class="q-header-left"><span class="q-number">Q-OD-22</span></div>
-          <span class="q-flag unanswered">Unanswered</span>
+          <span class="q-flag answered">Answered</span>
         </div>
         <div class="q-text">Price a call from memory: Spot = 100, Vol = 20%, T = 1Y, ATM. What is the approximate price? Where does the simplified formula S₀ × σ × √T × 0.4 come from?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 The "Trader's Rule of Thumb" Pricing</h4>
+            <p>Using the Brenner-Subrahmanyam (1988) approximation formula for an ATM option:</p>
+            <div style="font-family: monospace; font-size: 1.1rem; color: #10B981; background: rgba(15, 23, 42, 0.85); padding: 12px; border-radius: var(--radius-sm); border-left: 3px solid #10B981; margin: 12px 0;">
+              Call &approx; Put &approx; 0.4 · S<sub>0</sub> · &sigma; · &radic;T
+            </div>
+            <p>Plugging in the numbers (<i>S<sub>0</sub> = 100, &sigma; = 0.20, T = 1</i>):<br>
+            <strong>Price = 0.4 × 100 × 0.20 × 1 = 8.00</strong></p>
+
+            <h4>Where does the 0.4 come from? (The Mathematical Proof)</h4>
+            <p>For an ATM option (<i>S = K</i>) where interest rates are zero (<i>r = 0</i>), the <i>d<sub>1</sub></i> formula simplifies heavily:</p>
+            <ul>
+              <li><i>d<sub>1</sub> = (&frac12;&sigma;<sup>2</sup>T) / (&sigma;&radic;T) = &frac12;&sigma;&radic;T</i></li>
+              <li><i>d<sub>2</sub> = −&frac12;&sigma;&radic;T</i> (Notice that <i>d<sub>2</sub> = −d<sub>1</sub></i>)</li>
+            </ul>
+            <p>The Black-Scholes formula simplifies to: <i>C = S[N(d<sub>1</sub>) − N(−d<sub>1</sub>)]</i>. Because of normal distribution symmetry, <i>N(−d<sub>1</sub>) = 1 − N(d<sub>1</sub>)</i>. <br>
+            Substitute this in: <i>C = S[2N(d<sub>1</sub>) − 1]</i>.</p>
+            
+            <p><strong>The Magic Taylor Expansion:</strong><br>
+            We approximate the standard normal CDF <i>N(x)</i> around zero using a first-order Taylor expansion: <i>N(x) &approx; 0.5 + x/&radic;(2&pi;)</i>.<br>
+            So, <i>N(d<sub>1</sub>) &approx; 0.5 + d<sub>1</sub>/&radic;(2&pi;)</i>.<br>
+            Plug this into our simplified Call formula:<br>
+            <i>C &approx; S · [2(0.5 + d<sub>1</sub>/&radic;(2&pi;)) − 1] = S · [2d<sub>1</sub>/&radic;(2&pi;)]</i>.</p>
+
+            <p>Finally, substitute <i>d<sub>1</sub> = &frac12;&sigma;&radic;T</i> back into the equation:<br>
+            <i>C &approx; S · [2(&frac12;&sigma;&radic;T) / &radic;(2&pi;)] = S · &sigma;&radic;T / &radic;(2&pi;)</i></p>
+
+            <p>Since <i>1 / &radic;(2&pi;) = 1 / &radic;6.28 &approx; 0.3989</i> (which is basically <strong>0.4</strong>), the final approximation is:<br>
+            <strong>C &approx; 0.4 · S · &sigma; · &radic;T</strong></p>
+          </div>
+        </details>
       </div>
 
       <div class="question-card">
         <div class="q-header">
           <div class="q-header-left"><span class="q-number">Q-OD-23</span></div>
-          <span class="q-flag unanswered">Unanswered</span>
+          <span class="q-flag answered">Answered</span>
         </div>
         <div class="q-text">What are other models besides Black-Scholes for pricing options? Compare the pros and cons of B&S, Monte Carlo, and binomial trees for pricing a simple cap.</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Alternative Pricing Models (Pros & Cons)</h4>
+            
+            <ul>
+              <li><strong>1. Black-Scholes Model (Analytical)</strong><br>
+              ✅ <strong>Pros:</strong> Closed-form analytical formula. Instantaneous computation. Very easy to compute Greeks.<br>
+              ❌ <strong>Cons:</strong> Relies on highly restrictive, unrealistic assumptions (constant volatility, lognormal returns). <strong>Cannot price American options</strong> (early exercise). Cannot easily handle complex path-dependent features.</li>
+              
+              <li><strong>2. Binomial / Trinomial Trees (Lattice Models)</strong><br>
+              ✅ <strong>Pros:</strong> Discretizes time, making it very easy to visualize. The biggest advantage is that it <strong>can price American options</strong> because it checks for optimal early exercise at every single node working backward from expiration.<br>
+              ❌ <strong>Cons:</strong> Computationally slow for large time steps. Becomes exponentially complex (curse of dimensionality) if you try to price options on multiple underlying assets (basket options).</li>
+
+              <li><strong>3. Monte Carlo Simulation (Probabilistic)</strong><br>
+              ✅ <strong>Pros:</strong> Incredibly flexible. You can use any custom probability distribution (fat tails, jump-diffusion, stochastic volatility). It is the only reliable way to price highly complex <strong>path-dependent options</strong> (e.g., Asian options, Barrier options) and multi-asset derivatives.<br>
+              ❌ <strong>Cons:</strong> Extremely computationally intensive. Converges very slowly (error shrinks at a rate of <i>1/&radic;N</i>). Standard Monte Carlo struggles to price American options because it simulates paths forward, whereas early exercise requires backward induction (though the Longstaff-Schwartz algorithm solves this at a high computational cost).</li>
+            </ul>
+          </div>
+        </details>
       </div>
 
       <div class="question-card">
         <div class="q-header">
           <div class="q-header-left"><span class="q-number">Q-OD-24</span></div>
-          <span class="q-flag unanswered">Unanswered</span>
+          <span class="q-flag answered">Answered</span>
         </div>
         <div class="q-text">Price this call using a one-period binomial tree: K=100, S=90, σ=20%, r=0, T=1, probability of up = probability of down = 1/2.</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Step-by-Step Mental Math Pricing</h4>
+            <p>If you don't have a calculator, you can solve this using the expected value in a risk-neutral world.</p>
+            
+            <ol>
+              <li><strong>Find the Risk-Neutral Expected Value of the Stock:</strong><br>
+              Since the risk-free rate <i>r = 0</i>, the expected value of the stock in a risk-neutral world must simply be the current spot price: <strong>E[S<sub>T</sub>] = 90</strong>.</li>
+              
+              <li><strong>Calculate the Up and Down Node Prices:</strong><br>
+              To match the volatility &sigma; = 20%, we can use the simple discrete approximation: <i>S<sub>up</sub> = S(1 + &sigma;)</i> and <i>S<sub>down</sub> = S(1 − &sigma;)</i>.<br>
+              Up Price: <i>90 × 1.20 = 108</i><br>
+              Down Price: <i>90 × 0.80 = 72</i><br>
+              <em>Check:</em> 50% probability of 108 + 50% probability of 72 = 54 + 36 = <strong>90</strong>. Perfect! The tree is risk-neutral.</li>
+              
+              <li><strong>Calculate the Option Payoffs at the Nodes:</strong><br>
+              The Strike (<i>K</i>) is 100.<br>
+              Up Node Payoff: <i>max(108 − 100, 0) = 8</i><br>
+              Down Node Payoff: <i>max(72 − 100, 0) = 0</i></li>
+              
+              <li><strong>Calculate the Expected Option Value:</strong><br>
+              Expected Payoff = <i>(50% × 8) + (50% × 0) = 4</i>.<br>
+              Since <i>r = 0</i>, the discount factor is 1.<br>
+              <strong>Final Call Price = 4</strong></li>
+            </ol>
+          </div>
+        </details>
       </div>
     </div>
 
@@ -924,33 +1118,128 @@
       <div class="question-card">
         <div class="q-header">
           <div class="q-header-left"><span class="q-number">Q-OD-25</span></div>
-          <span class="q-flag unanswered">Unanswered</span>
+          <span class="q-flag answered">Answered</span>
         </div>
         <div class="q-text">What is a forward? What is a future? What are the key differences between the two?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 The Core Definitions</h4>
+            <p>Both are derivative contracts that obligate two parties to buy/sell an underlying asset at a pre-agreed price on a specific future date.</p>
+            <ul>
+              <li><strong>Forward:</strong> A highly customizable, private Over-The-Counter (OTC) contract between two institutional counterparties.</li>
+              <li><strong>Future:</strong> A highly standardized contract traded on a centralized exchange (like the CME or Eurex).</li>
+            </ul>
+
+            <h4>📌 The 3 Key Differences to Memorize</h4>
+            <table class="comparison-table" style="width:100%; border-collapse: collapse; margin-top: 10px; margin-bottom: 15px;">
+              <tr style="background: rgba(15, 23, 42, 0.5); text-align: left; border-bottom: 2px solid var(--accent-blue);">
+                <th style="padding: 10px;">Feature</th>
+                <th style="padding: 10px;">Forward (OTC)</th>
+                <th style="padding: 10px;">Future (Exchange)</th>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                <td style="padding: 10px; font-weight: bold;">Customization</td>
+                <td style="padding: 10px;">100% bespoke (custom dates, sizes, assets).</td>
+                <td style="padding: 10px;">Rigidly standardized (fixed maturities, tick sizes, lot sizes).</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                <td style="padding: 10px; font-weight: bold;">Credit / Default Risk</td>
+                <td style="padding: 10px;">High counterparty risk (if the other bank goes bust, you lose).</td>
+                <td style="padding: 10px;">Zero counterparty risk. The exchange clearinghouse acts as the counterparty to both sides.</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; font-weight: bold;">Settlement</td>
+                <td style="padding: 10px;">Settled entirely at maturity (one big cash flow at the end).</td>
+                <td style="padding: 10px;">Marked-to-market and settled <strong>daily</strong> (via margin accounts).</td>
+              </tr>
+            </table>
+          </div>
+        </details>
       </div>
 
       <div class="question-card">
         <div class="q-header">
           <div class="q-header-left"><span class="q-number">Q-OD-26</span></div>
-          <span class="q-flag unanswered">Unanswered</span>
+          <span class="q-flag answered">Answered</span>
         </div>
         <div class="q-text">How do you price a forward? What are the components (spot, rates, dividends, repo)?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 The Cost of Carry Model</h4>
+            <p>The price of a forward contract is entirely determined by arbitrage against the spot market. It has absolutely nothing to do with where traders "predict" the price will go. The formula is:</p>
+            
+            <div style="font-family: monospace; font-size: 1.1rem; color: #10B981; background: rgba(15, 23, 42, 0.85); padding: 12px; border-radius: var(--radius-sm); border-left: 3px solid #10B981; margin: 12px 0;">
+              Forward = Spot × e<sup>(Cost of Carry) × T</sup>
+            </div>
+
+            <h4>The Components of Carry:</h4>
+            <p>If you want to synthesize a forward, you borrow cash, buy the physical spot asset today, and hold it until maturity. The Forward price must perfectly offset the costs and benefits of doing this:</p>
+            <ul>
+              <li><strong>Spot Price (S):</strong> The baseline price of the asset today.</li>
+              <li><strong>Interest Rates (r):</strong> <em>(Increases Forward Price)</em>. If you buy spot, you must borrow cash and pay interest. If you buy a forward, you keep your cash in the bank and earn interest. The forward must be priced higher to reflect this funding cost.</li>
+              <li><strong>Dividends / Yield (q):</strong> <em>(Decreases Forward Price)</em>. If you hold the spot stock, you receive cash dividends. If you hold the forward, you do not. The forward must be priced lower to compensate for the missed income.</li>
+              <li><strong>Repo Rate / Borrow Cost:</strong> <em>(Decreases Forward Price)</em>. To short a stock, you must borrow it from a prime broker and pay a "repo" or borrow fee. High borrow costs (e.g., hard-to-borrow meme stocks) push the forward price down significantly, sometimes causing it to trade at a deep discount to spot.</li>
+            </ul>
+
+            <p><strong>Final Equity Formula:</strong> <i>F = S<sub>0</sub> · e<sup>(r − q − borrow_cost)T</sup></i></p>
+          </div>
+        </details>
       </div>
 
       <div class="question-card">
         <div class="q-header">
           <div class="q-header-left"><span class="q-number">Q-OD-27</span></div>
-          <span class="q-flag unanswered">Unanswered</span>
+          <span class="q-flag answered">Answered</span>
         </div>
         <div class="q-text">What is the difference between an option and a forward/future?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Contingent Claim vs. Forward Commitment</h4>
+            <p>The difference perfectly aligns with the CFA curriculum's distinction between the two major classes of derivatives:</p>
+            
+            <ul>
+              <li><strong>Options are Contingent Claims:</strong> You have the <em>right, but not the obligation</em>, to exercise the contract. Because you are buying optionality (the ability to walk away if the market moves against you), you must pay an upfront <strong>Premium</strong> to the seller.</li>
+              <li><strong>Forwards/Futures are Forward Commitments:</strong> They are legally binding obligations to transact at the maturity date, regardless of where the market price is. Because there is no optionality, they are entered into at zero cost. There is <strong>No Premium</strong>.</li>
+            </ul>
+
+            <div class="pro-tip-box">
+              <strong>💡 Interview Pro-Tip:</strong> The exact terminology you want to use here is "Asymmetric Payoff" (Options) versus "Symmetric Payoff" (Forwards/Futures). Options truncate your downside risk at the cost of an initial premium.
+            </div>
+          </div>
+        </details>
       </div>
 
       <div class="question-card">
         <div class="q-header">
           <div class="q-header-left"><span class="q-number">Q-OD-28</span></div>
-          <span class="q-flag unanswered">Unanswered</span>
+          <span class="q-flag answered">Answered</span>
         </div>
         <div class="q-text">Which is more expensive, a future or a forward? Why?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 The Daily Settlement & Interest Rate Correlation Trap</h4>
+            <p>This is a classic Quant trap. If interest rates are perfectly constant and deterministic, the price of a Future and a Forward are mathematically <strong>identical</strong>. However, because interest rates are stochastic (random) in the real world, the prices diverge based on <strong>Settlement Timing</strong>.</p>
+            
+            <p>Recall from Q-OD-25 that <strong>Futures settle daily</strong> (Marked-to-Market), while <strong>Forwards settle at maturity</strong>. Therefore, the pricing difference comes down entirely to the <strong>correlation between the underlying asset and interest rates</strong>.</p>
+
+            <ul>
+              <li><strong>Positive Correlation (Future &gt; Forward):</strong> If the asset price and interest rates move in the same direction, the Future is more expensive. Why? If the asset goes up, your long Future makes money and deposits cash into your margin account <em>today</em>. Because rates also went up, you can reinvest this cash at a higher interest rate! The daily settlement creates a massive reinvestment advantage.</li>
+              <li><strong>Negative Correlation (Forward &gt; Future):</strong> If the asset and rates move in opposite directions, the Forward is more expensive. Why? If the asset goes up and your Future makes money, rates go down, so you are forced to reinvest your daily winnings at a lower rate. You would rather wait until maturity (Forward) to lock in the payoff.</li>
+            </ul>
+
+            <div class="pro-tip-box">
+              <strong>💡 Interview Pro-Tip:</strong> Memorize the mechanism: "Because Futures are marked-to-market daily, a positive correlation with interest rates creates a compounding reinvestment advantage for the Future, driving its price higher than the Forward."
+            </div>
+          </div>
+        </details>
       </div>
 
       <div class="question-card">
