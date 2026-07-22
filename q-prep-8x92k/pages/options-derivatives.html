@@ -35,9 +35,9 @@
     <div class="page-stats">
       <div class="stat"><span class="stat-num">45</span> questions</div>
       <div class="stat-divider"></div>
-      <div class="stat"><span class="stat-num">28</span> answered</div>
+      <div class="stat"><span class="stat-num">36</span> answered</div>
       <div class="stat-divider"></div>
-      <div class="stat"><span class="stat-num">17</span> remaining</div>
+      <div class="stat"><span class="stat-num">9</span> remaining</div>
     </div>
 
     <!-- ==================== SECTION 1: Call/Put Basics ==================== -->
@@ -1245,17 +1245,66 @@
       <div class="question-card">
         <div class="q-header">
           <div class="q-header-left"><span class="q-number">Q-OD-29</span></div>
-          <span class="q-flag unanswered">Unanswered</span>
+          <span class="q-flag answered">Answered</span>
         </div>
         <div class="q-text">How do you price a forward on FX? Write the formula. What are the concepts of report (premium) and deport (discount)?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 FX Forward Pricing (Covered Interest Parity)</h4>
+            <p>An FX forward is priced entirely based on the interest rate differential between the two currencies. The concept relies on the fact that holding cash in Currency A yields a different interest rate than holding cash in Currency B.</p>
+            
+            <div style="font-family: monospace; font-size: 1.1rem; color: #10B981; background: rgba(15, 23, 42, 0.85); padding: 12px; border-radius: var(--radius-sm); border-left: 3px solid #10B981; margin: 12px 0;">
+              F = S<sub>0</sub> · e<sup>(r<sub>domestic</sub> − r<sub>foreign</sub>)T</sup>
+            </div>
+            <p><em>(Note: In actual banking practice, FX forwards are often priced using simple money-market rates: F = S × [1 + r<sub>d</sub>(T)] / [1 + r<sub>f</sub>(T)])</em></p>
+
+            <h4>📌 Report (Premium) vs. Deport (Discount) & The CFA vs Market Convention</h4>
+            <p>First, let's clear up the <strong>Base vs. Quote (Foreign vs. Domestic)</strong> confusion.</p>
+            <p>If you are looking at <strong>EUR/USD = 1.10</strong>:</p>
+            <ul>
+              <li><strong>EUR</strong> is the Base Currency (the "Asset" or "Foreign" currency). You are buying 1 Euro.</li>
+              <li><strong>USD</strong> is the Quote Currency (the "Pricing" or "Domestic" currency). It costs 1.10 Dollars to buy that 1 Euro.</li>
+              <li><em>CFA Note:</em> The CFA texts often write this confusingly as USD/EUR = 1.10 (meaning $ per €). In the real market, it is strictly written as EUR/USD. Always think of it as <strong>Base/Quote</strong>.</li>
+            </ul>
+
+            <p>Now, let's look at <strong>Report (Forward Premium)</strong> vs. <strong>Deport (Forward Discount)</strong> using our formula <i>F = S · e<sup>(r<sub>Quote</sub> − r<sub>Base</sub>)T</sup></i>:</p>
+            <ul>
+              <li><strong>Report (Forward Premium):</strong> Occurs when <i>F &gt; S</i>. This happens when the Quote (Domestic) interest rate is <em>higher</em> than the Base (Foreign) interest rate.
+                <ul><li><em>Example:</em> USD rates are 5%, EUR rates are 2%. The cost to borrow USD to buy EUR is high. Therefore, the Forward EUR/USD rate must be <strong>higher</strong> than the Spot rate (e.g., Spot = 1.10, Forward = 1.12). The Euro is trading at a "premium" (Report).</li></ul>
+              </li>
+              <li><strong>Deport (Forward Discount):</strong> Occurs when <i>F &lt; S</i>. This happens when the Quote (Domestic) interest rate is <em>lower</em> than the Base (Foreign) interest rate.
+                <ul><li><em>Example:</em> USD rates are 1%, EUR rates are 4%. You earn more keeping your cash in Euros. Therefore, the Forward EUR/USD rate must be <strong>lower</strong> than the Spot rate (e.g., Spot = 1.10, Forward = 1.08). The Euro is trading at a "discount" (Deport).</li></ul>
+              </li>
+            </ul>
+          </div>
+        </details>
       </div>
 
       <div class="question-card">
         <div class="q-header">
           <div class="q-header-left"><span class="q-number">Q-OD-30</span></div>
-          <span class="q-flag unanswered">Unanswered</span>
+          <span class="q-flag answered">Answered</span>
         </div>
         <div class="q-text">BNP is quoted at 60. At what price do you sell the April 2017 future? (Hint: no dividend until May, and rates are slightly negative.)</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Practical Application of Cost of Carry</h4>
+            <p>Use the Cost of Carry formula for an equity forward: <i>F = S · e<sup>(r − q)T</sup></i>.</p>
+            
+            <ul>
+              <li><strong>Spot (S)</strong> = 60</li>
+              <li><strong>Dividend (q)</strong> = 0 (because the dividend is not paid until May, and our future expires in April, we receive no dividends during the life of the contract).</li>
+              <li><strong>Rates (r)</strong> &lt; 0 (rates are negative).</li>
+            </ul>
+
+            <p>Because the dividend yield is zero and the interest rate is negative, the total cost of carry is negative. Therefore, the exponential term is less than 1.</p>
+            <p><strong>Conclusion:</strong> <i>F &lt; S</i>. You will sell the future at a price <strong>strictly lower than 60</strong> (e.g., 59.95).</p>
+          </div>
+        </details>
       </div>
     </div>
 
@@ -1266,49 +1315,334 @@
       <div class="question-card">
         <div class="q-header">
           <div class="q-header-left"><span class="q-number">Q-OD-31</span></div>
-          <span class="q-flag unanswered">Unanswered</span>
+          <span class="q-flag answered">Answered</span>
         </div>
         <div class="q-text">Define and draw the payoff of a straddle and a strangle. What market view does each represent? What is the approximate delta of an ATM straddle?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Straddle vs. Strangle</h4>
+            <p>Both strategies represent a view that <strong>Volatility will be high</strong>. The trader believes the market will make a massive move, but they don't know in which direction.</p>
+            
+            <ul>
+              <li><strong>Straddle:</strong> Long Call and Long Put at the <em>same strike</em> (usually ATM). 
+                <ul>
+                  <li><strong>Payoff Shape:</strong> A sharp "V" shape resting on the Strike.</li>
+                  <li><strong>Cost:</strong> High. You are buying two expensive ATM options.</li>
+                </ul>
+              </li>
+              <li><strong>Strangle:</strong> Long Call (high strike) and Long Put (low strike).
+                <ul>
+                  <li><strong>Payoff Shape:</strong> A wide "U" shape with a flat bottom between the two strikes where the payoff is zero.</li>
+                  <li><strong>Cost:</strong> Cheaper than a Straddle, but requires an even larger market move to become profitable.</li>
+                </ul>
+              </li>
+            </ul>
+
+            <div class="chart-grid">
+              <!-- STRADDLE -->
+              <div class="chart-card">
+                <div class="chart-title" style="color: #A78BFA;">📉 Long Straddle</div>
+                <svg viewBox="0 0 300 200" class="chart-svg" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Axes -->
+                  <line x1="50" y1="100" x2="280" y2="100" stroke="#64748B" stroke-width="1.5"/>
+                  <line x1="50" y1="185" x2="50" y2="15" stroke="#64748B" stroke-width="1.5"/>
+                  <polygon points="280,97 287,100 280,103" fill="#64748B"/>
+                  <polygon points="47,15 50,8 53,15" fill="#64748B"/>
+                  <!-- Axis labels -->
+                  <text x="268" y="118" fill="#94A3B8" font-size="12" font-family="sans-serif">S<tspan font-size="9" dy="3">T</tspan></text>
+                  <text x="18" y="20" fill="#94A3B8" font-size="12" font-family="sans-serif">P&amp;L</text>
+                  <!-- Strike K -->
+                  <line x1="165" y1="97" x2="165" y2="103" stroke="#94A3B8" stroke-width="1.5"/>
+                  <text x="161" y="118" fill="#CBD5E1" font-size="11" font-weight="bold" font-family="sans-serif">K</text>
+                  <!-- Premium -->
+                  <line x1="47" y1="140" x2="53" y2="140" stroke="#F43F5E" stroke-width="1.5"/>
+                  <text x="20" y="144" fill="#F43F5E" font-size="10" font-weight="bold" font-family="sans-serif">−2P</text>
+                  <!-- P&L Line -->
+                  <polyline points="50,25 165,140 280,25" fill="none" stroke="#A78BFA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+
+              <!-- STRANGLE -->
+              <div class="chart-card">
+                <div class="chart-title" style="color: #F472B6;">📉 Long Strangle</div>
+                <svg viewBox="0 0 300 200" class="chart-svg" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Axes -->
+                  <line x1="50" y1="100" x2="280" y2="100" stroke="#64748B" stroke-width="1.5"/>
+                  <line x1="50" y1="185" x2="50" y2="15" stroke="#64748B" stroke-width="1.5"/>
+                  <polygon points="280,97 287,100 280,103" fill="#64748B"/>
+                  <polygon points="47,15 50,8 53,15" fill="#64748B"/>
+                  <!-- Axis labels -->
+                  <text x="268" y="118" fill="#94A3B8" font-size="12" font-family="sans-serif">S<tspan font-size="9" dy="3">T</tspan></text>
+                  <text x="18" y="20" fill="#94A3B8" font-size="12" font-family="sans-serif">P&amp;L</text>
+                  <!-- Strikes K1, K2 -->
+                  <line x1="125" y1="97" x2="125" y2="103" stroke="#94A3B8" stroke-width="1.5"/>
+                  <text x="117" y="118" fill="#CBD5E1" font-size="11" font-weight="bold" font-family="sans-serif">K<tspan font-size="8" dy="-5">1</tspan></text>
+                  <line x1="205" y1="97" x2="205" y2="103" stroke="#94A3B8" stroke-width="1.5"/>
+                  <text x="197" y="118" fill="#CBD5E1" font-size="11" font-weight="bold" font-family="sans-serif">K<tspan font-size="8" dy="-5">2</tspan></text>
+                  <!-- Premium -->
+                  <line x1="47" y1="130" x2="53" y2="130" stroke="#F43F5E" stroke-width="1.5"/>
+                  <text x="20" y="134" fill="#F43F5E" font-size="10" font-weight="bold" font-family="sans-serif">−Pr</text>
+                  <!-- P&L Line -->
+                  <polyline points="50,55 125,130 205,130 280,55" fill="none" stroke="#F472B6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </div>
+
+            <h4>📌 Delta of an ATM Straddle</h4>
+            <p>During its life, the approximate Delta of an ATM straddle is <strong>Zero (0)</strong>. An ATM call has a delta of roughly +0.50, and an ATM put has a delta of roughly -0.50. Adding them together gives a net delta of 0. This makes it a pure "Vega" (volatility) play, completely insulated from small directional movements!</p>
+          </div>
+        </details>
       </div>
 
       <div class="question-card">
         <div class="q-header">
           <div class="q-header-left"><span class="q-number">Q-OD-32</span></div>
-          <span class="q-flag unanswered">Unanswered</span>
+          <span class="q-flag answered">Answered</span>
         </div>
         <div class="q-text">What is a call spread? A put spread? How do you construct a bull spread? Draw the payoff and identify where delta is maximum.</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Spreads and Bull/Bear Views</h4>
+            <p>A "Spread" simply involves buying an option and selling another option of the same class (both calls or both puts) with different strikes. This cheapens the position but caps the maximum profit.</p>
+            
+            <ul>
+              <li><strong>Bull Call Spread:</strong> You are bullish but want to cap your premium cost. <strong>Buy</strong> a Call at a low strike (<i>K<sub>1</sub></i>), <strong>Sell</strong> a Call at a high strike (<i>K<sub>2</sub></i>).</li>
+              <li><strong>Payoff Shape:</strong> Rises from 0 (at <i>K<sub>1</sub></i>), goes up diagonally, and then flattens out to a horizontal ceiling (at <i>K<sub>2</sub></i>) equal to <i>K<sub>2</sub> - K<sub>1</sub></i>.</li>
+              <li><em>Note: A Bull Put Spread achieves the same directional payoff but using puts (Sell high strike Put, Buy low strike Put).</em></li>
+            </ul>
+
+            <div class="chart-grid">
+              <!-- BULL CALL SPREAD -->
+              <div class="chart-card">
+                <div class="chart-title" style="color: #60A5FA;">📈 Bull Call Spread</div>
+                <svg viewBox="0 0 300 200" class="chart-svg" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Axes -->
+                  <line x1="50" y1="100" x2="280" y2="100" stroke="#64748B" stroke-width="1.5"/>
+                  <line x1="50" y1="185" x2="50" y2="15" stroke="#64748B" stroke-width="1.5"/>
+                  <polygon points="280,97 287,100 280,103" fill="#64748B"/>
+                  <polygon points="47,15 50,8 53,15" fill="#64748B"/>
+                  <!-- Axis labels -->
+                  <text x="268" y="118" fill="#94A3B8" font-size="12" font-family="sans-serif">S<tspan font-size="9" dy="3">T</tspan></text>
+                  <text x="18" y="20" fill="#94A3B8" font-size="12" font-family="sans-serif">P&amp;L</text>
+                  <!-- Strikes K1, K2 -->
+                  <line x1="120" y1="97" x2="120" y2="103" stroke="#94A3B8" stroke-width="1.5"/>
+                  <text x="112" y="118" fill="#CBD5E1" font-size="11" font-weight="bold" font-family="sans-serif">K<tspan font-size="8" dy="-5">1</tspan></text>
+                  <line x1="200" y1="97" x2="200" y2="103" stroke="#94A3B8" stroke-width="1.5"/>
+                  <text x="192" y="118" fill="#CBD5E1" font-size="11" font-weight="bold" font-family="sans-serif">K<tspan font-size="8" dy="-5">2</tspan></text>
+                  <!-- Premium -->
+                  <line x1="47" y1="130" x2="53" y2="130" stroke="#F43F5E" stroke-width="1.5"/>
+                  <text x="20" y="134" fill="#F43F5E" font-size="10" font-weight="bold" font-family="sans-serif">−Pr</text>
+                  <line x1="47" y1="50" x2="53" y2="50" stroke="#10B981" stroke-width="1.5"/>
+                  <text x="15" y="54" fill="#10B981" font-size="10" font-weight="bold" font-family="sans-serif">Max</text>
+                  <!-- P&L Line -->
+                  <polyline points="50,130 120,130 200,50 280,50" fill="none" stroke="#60A5FA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                  <!-- Max Delta Indicator -->
+                  <circle cx="160" cy="90" r="4" fill="none" stroke="#FBBF24" stroke-width="2"/>
+                  <text x="145" y="80" fill="#FBBF24" font-size="10" font-weight="bold" font-family="sans-serif">Max Δ</text>
+                </svg>
+              </div>
+            </div>
+
+            <h4>📌 Where is Delta Maximum?</h4>
+            <p>The total delta of the spread is the Delta of the Long Option minus the Delta of the Short Option. Since Gamma measures the rate of change of Delta, the spread's Delta hits its absolute maximum exactly where the Gamma of the Long option equals the Gamma of the Short option. For a symmetric spread, this occurs <strong>exactly halfway between the two strikes</strong>.</p>
+          </div>
+        </details>
       </div>
 
       <div class="question-card">
         <div class="q-header">
           <div class="q-header-left"><span class="q-number">Q-OD-33</span></div>
-          <span class="q-flag unanswered">Unanswered</span>
+          <span class="q-flag answered">Answered</span>
         </div>
         <div class="q-text">What is a butterfly spread? Draw the payoff.</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 The Butterfly Spread</h4>
+            <p>A Butterfly is constructed by combining a Bull Spread and a Bear Spread that share the same middle strike. It is a <strong>3-strike</strong> strategy. To build a Long Call Butterfly:</p>
+            <ol>
+              <li>Buy 1 Call at a low strike (<i>K<sub>1</sub></i>)</li>
+              <li>Sell 2 Calls at the middle strike (<i>K<sub>2</sub></i>)</li>
+              <li>Buy 1 Call at a high strike (<i>K<sub>3</sub></i>)</li>
+            </ol>
+            <p><em>(The distance between K<sub>1</sub> and K<sub>2</sub> must equal the distance between K<sub>2</sub> and K<sub>3</sub>).</em></p>
+
+            <div class="chart-grid">
+              <!-- BUTTERFLY -->
+              <div class="chart-card">
+                <div class="chart-title" style="color: #34D399;">📉 Long Butterfly</div>
+                <svg viewBox="0 0 300 200" class="chart-svg" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Axes -->
+                  <line x1="50" y1="100" x2="280" y2="100" stroke="#64748B" stroke-width="1.5"/>
+                  <line x1="50" y1="185" x2="50" y2="15" stroke="#64748B" stroke-width="1.5"/>
+                  <polygon points="280,97 287,100 280,103" fill="#64748B"/>
+                  <polygon points="47,15 50,8 53,15" fill="#64748B"/>
+                  <!-- Axis labels -->
+                  <text x="268" y="118" fill="#94A3B8" font-size="12" font-family="sans-serif">S<tspan font-size="9" dy="3">T</tspan></text>
+                  <text x="18" y="20" fill="#94A3B8" font-size="12" font-family="sans-serif">P&amp;L</text>
+                  <!-- Strikes K1, K2, K3 -->
+                  <line x1="110" y1="97" x2="110" y2="103" stroke="#94A3B8" stroke-width="1.5"/>
+                  <text x="102" y="118" fill="#CBD5E1" font-size="11" font-weight="bold" font-family="sans-serif">K<tspan font-size="8" dy="-5">1</tspan></text>
+                  <line x1="150" y1="97" x2="150" y2="103" stroke="#94A3B8" stroke-width="1.5"/>
+                  <text x="142" y="118" fill="#CBD5E1" font-size="11" font-weight="bold" font-family="sans-serif">K<tspan font-size="8" dy="-5">2</tspan></text>
+                  <line x1="190" y1="97" x2="190" y2="103" stroke="#94A3B8" stroke-width="1.5"/>
+                  <text x="182" y="118" fill="#CBD5E1" font-size="11" font-weight="bold" font-family="sans-serif">K<tspan font-size="8" dy="-5">3</tspan></text>
+                  <!-- Premium -->
+                  <line x1="47" y1="140" x2="53" y2="140" stroke="#F43F5E" stroke-width="1.5"/>
+                  <text x="20" y="144" fill="#F43F5E" font-size="10" font-weight="bold" font-family="sans-serif">−Pr</text>
+                  <!-- Max Profit -->
+                  <line x1="47" y1="60" x2="53" y2="60" stroke="#10B981" stroke-width="1.5"/>
+                  <text x="15" y="64" fill="#10B981" font-size="10" font-weight="bold" font-family="sans-serif">Max</text>
+                  <!-- P&L Line -->
+                  <polyline points="50,140 110,140 150,60 190,140 280,140" fill="none" stroke="#34D399" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                  <!-- Zero line (x-axis) dashed -->
+                  <line x1="50" y1="100" x2="280" y2="100" stroke="#475569" stroke-width="0.5" stroke-dasharray="2,4"/>
+                </svg>
+              </div>
+            </div>
+
+            <p><strong>Market View:</strong> This is a bet on <strong>low volatility</strong> (the market staying completely flat). You want the stock to expire exactly at the middle strike <i>K<sub>2</sub></i>, which is the peak of the triangle.</p>
+          </div>
+        </details>
       </div>
 
       <div class="question-card">
         <div class="q-header">
           <div class="q-header-left"><span class="q-number">Q-OD-34</span></div>
-          <span class="q-flag unanswered">Unanswered</span>
+          <span class="q-flag answered">Answered</span>
         </div>
         <div class="q-text">What is a collar? What is a risk reversal? How are they different from a bull spread?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Collar</h4>
+            <p>A Collar is a protective strategy used when you already <strong>own the underlying stock</strong>. You want to protect yourself against a crash, but put options are expensive. To finance the purchase of the Put, you sell a Call.</p>
+            <ul>
+              <li><strong>Position:</strong> Long Stock + Buy OTM Put + Sell OTM Call.</li>
+              <li><strong>Result:</strong> Your downside is protected by the Put floor, but your upside is capped by the Call ceiling. You get downside protection for "free" (zero-cost collar).</li>
+            </ul>
+
+            <div class="chart-grid">
+              <!-- COLLAR -->
+              <div class="chart-card">
+                <div class="chart-title" style="color: #60A5FA;">📈 Collar (Long Stock + Long Put + Short Call)</div>
+                <svg viewBox="0 0 300 200" class="chart-svg" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Axes -->
+                  <line x1="50" y1="100" x2="280" y2="100" stroke="#64748B" stroke-width="1.5"/>
+                  <line x1="50" y1="185" x2="50" y2="15" stroke="#64748B" stroke-width="1.5"/>
+                  <polygon points="280,97 287,100 280,103" fill="#64748B"/>
+                  <polygon points="47,15 50,8 53,15" fill="#64748B"/>
+                  <!-- Axis labels -->
+                  <text x="268" y="118" fill="#94A3B8" font-size="12" font-family="sans-serif">S<tspan font-size="9" dy="3">T</tspan></text>
+                  <text x="18" y="20" fill="#94A3B8" font-size="12" font-family="sans-serif">P&amp;L</text>
+                  <!-- Strikes K1, K2 -->
+                  <line x1="110" y1="97" x2="110" y2="103" stroke="#94A3B8" stroke-width="1.5"/>
+                  <text x="95" y="118" fill="#CBD5E1" font-size="11" font-weight="bold" font-family="sans-serif">K(put)</text>
+                  <line x1="190" y1="97" x2="190" y2="103" stroke="#94A3B8" stroke-width="1.5"/>
+                  <text x="180" y="118" fill="#CBD5E1" font-size="11" font-weight="bold" font-family="sans-serif">K(call)</text>
+                  <!-- P&L Line -->
+                  <polyline points="50,140 110,140 190,60 280,60" fill="none" stroke="#60A5FA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                  <!-- Annotations -->
+                  <text x="55" y="132" fill="#F43F5E" font-size="10" font-weight="bold" font-family="sans-serif">Floor (Protection)</text>
+                  <text x="210" y="52" fill="#10B981" font-size="10" font-weight="bold" font-family="sans-serif">Ceiling (Cap)</text>
+                  <!-- Zero line (x-axis) dashed -->
+                  <line x1="50" y1="100" x2="280" y2="100" stroke="#475569" stroke-width="0.5" stroke-dasharray="2,4"/>
+                </svg>
+              </div>
+            </div>
+
+            <h4>📌 Risk Reversal</h4>
+            <p>A Risk Reversal is simply the options portion of the collar (without owning the stock). It is heavily used in FX and Equities to bet on directional movement and skew.</p>
+            <ul>
+              <li><strong>Bullish Risk Reversal:</strong> Buy OTM Call, Sell OTM Put.</li>
+              <li><strong>Bearish Risk Reversal:</strong> Buy OTM Put, Sell OTM Call.</li>
+            </ul>
+
+            <div class="chart-grid">
+              <!-- RISK REVERSAL -->
+              <div class="chart-card">
+                <div class="chart-title" style="color: #FBBF24;">📈 Bullish Risk Reversal</div>
+                <svg viewBox="0 0 300 200" class="chart-svg" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Axes -->
+                  <line x1="50" y1="100" x2="280" y2="100" stroke="#64748B" stroke-width="1.5"/>
+                  <line x1="50" y1="185" x2="50" y2="15" stroke="#64748B" stroke-width="1.5"/>
+                  <polygon points="280,97 287,100 280,103" fill="#64748B"/>
+                  <polygon points="47,15 50,8 53,15" fill="#64748B"/>
+                  <!-- Axis labels -->
+                  <text x="268" y="118" fill="#94A3B8" font-size="12" font-family="sans-serif">S<tspan font-size="9" dy="3">T</tspan></text>
+                  <text x="18" y="20" fill="#94A3B8" font-size="12" font-family="sans-serif">P&amp;L</text>
+                  <!-- Strikes K1, K2 -->
+                  <line x1="110" y1="97" x2="110" y2="103" stroke="#94A3B8" stroke-width="1.5"/>
+                  <text x="95" y="118" fill="#CBD5E1" font-size="11" font-weight="bold" font-family="sans-serif">K(put)</text>
+                  <line x1="190" y1="97" x2="190" y2="103" stroke="#94A3B8" stroke-width="1.5"/>
+                  <text x="180" y="118" fill="#CBD5E1" font-size="11" font-weight="bold" font-family="sans-serif">K(call)</text>
+                  <!-- P&L Line -->
+                  <polyline points="50,160 110,100 190,100 260,30" fill="none" stroke="#FBBF24" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                  <!-- Zero line (x-axis) dashed -->
+                  <line x1="50" y1="100" x2="280" y2="100" stroke="#475569" stroke-width="0.5" stroke-dasharray="2,4"/>
+                </svg>
+              </div>
+            </div>
+
+            <h4>📌 Difference from a Bull Spread</h4>
+            <p>A Bull Spread combines two options of the <strong>same class</strong> (e.g., Buy a Call, Sell a Call). A Collar and Risk Reversal combine options of <strong>different classes</strong> (Buy a Put, Sell a Call).</p>
+          </div>
+        </details>
       </div>
 
       <div class="question-card">
         <div class="q-header">
           <div class="q-header-left"><span class="q-number">Q-OD-35</span></div>
-          <span class="q-flag unanswered">Unanswered</span>
+          <span class="q-flag answered">Answered</span>
         </div>
         <div class="q-text">Which option strategies allow you to profit from an increase/decrease in implied volatility?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Trading Volatility (Vega)</h4>
+            <p>To profit from a change in implied volatility, you need a strategy that is heavily exposed to <strong>Vega</strong>. Recall that Vega measures an option's price sensitivity to implied volatility.</p>
+            
+            <ul>
+              <li><strong>To profit from an INCREASE in Implied Volatility:</strong>
+                <p>You need a positive Vega position. This means you must be a net <strong>buyer</strong> of options. The best delta-neutral strategies for this are a <strong>Long Straddle</strong> or a <strong>Long Strangle</strong>.</p>
+              </li>
+              <li><strong>To profit from a DECREASE in Implied Volatility:</strong>
+                <p>You need a negative Vega position. This means you must be a net <strong>seller</strong> of options. The best delta-neutral strategies for this are a <strong>Short Straddle</strong> or a <strong>Short Strangle</strong>. A Butterfly is also a short volatility trade because you are selling the ATM options where Vega is highest.</p>
+              </li>
+            </ul>
+          </div>
+        </details>
       </div>
 
       <div class="question-card">
         <div class="q-header">
           <div class="q-header-left"><span class="q-number">Q-OD-36</span></div>
-          <span class="q-flag unanswered">Unanswered</span>
+          <span class="q-flag answered">Answered</span>
         </div>
         <div class="q-text">I buy a call at 100, sell two calls at 110, and buy one call at 120. Describe the payoff. Do I pay or receive a premium for this structure?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Recognizing the Butterfly</h4>
+            <p>This is the exact definition of a <strong>Long Call Butterfly</strong> centered at 110. The payoff is a triangle that peaks at 110.</p>
+
+            <h4>📌 Does it cost money? (Convexity)</h4>
+            <p>Yes! You always <strong>pay a net premium</strong> to enter a long butterfly. But why?</p>
+            <p>It comes down to the mathematical <strong>convexity</strong> of option prices with respect to strikes. Option prices decrease as strikes increase, but they do so at a decreasing rate (the curve is convex). Because of this convexity:</p>
+            <div style="font-family: monospace; font-size: 1.1rem; color: #10B981; background: rgba(15, 23, 42, 0.85); padding: 12px; border-radius: var(--radius-sm); border-left: 3px solid #10B981; margin: 12px 0;">
+              0.5 × [Call(100) + Call(120)] &gt; Call(110)
+            </div>
+            <p>Multiply by 2, and you get: <code>Call(100) + Call(120) &gt; 2 × Call(110)</code>. The cost of buying the wings is strictly greater than the premium received from selling the two ATM options. <em>(You can also argue this logically: the payoff of a butterfly is strictly ≥ 0 at expiration. By no-arbitrage, anything that guarantees a non-negative payoff must cost money today).</em></p>
+          </div>
+        </details>
       </div>
 
       <div class="question-card">
