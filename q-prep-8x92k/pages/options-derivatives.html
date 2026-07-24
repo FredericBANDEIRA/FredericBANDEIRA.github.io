@@ -35,9 +35,9 @@
     <div class="page-stats">
       <div class="stat"><span class="stat-num">45</span> questions</div>
       <div class="stat-divider"></div>
-      <div class="stat"><span class="stat-num">36</span> answered</div>
+      <div class="stat" style="color: #10B981;"><span class="stat-num">45</span> answered</div>
       <div class="stat-divider"></div>
-      <div class="stat"><span class="stat-num">9</span> remaining</div>
+      <div class="stat"><span class="stat-num">0</span> remaining</div>
     </div>
 
     <!-- ==================== SECTION 1: Call/Put Basics ==================== -->
@@ -1648,9 +1648,23 @@
       <div class="question-card">
         <div class="q-header">
           <div class="q-header-left"><span class="q-number">Q-OD-37</span></div>
-          <span class="q-flag unanswered">Unanswered</span>
+          <span class="q-flag answered">Answered</span>
         </div>
         <div class="q-text">What is a call spread ratio? What is its purpose?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Structure of a Ratio Spread</h4>
+            <p>A Call Ratio Spread (often quoted as 1x2 or 1x3) involves <strong>buying one Call</strong> at a lower strike, and <strong>selling multiple Calls</strong> at a higher strike.</p>
+            
+            <h4>📌 Why do this? (Purpose)</h4>
+            <ul>
+              <li><strong>Zero Cost Entry:</strong> The primary purpose is to finance the purchase of the long call. By selling <em>extra</em> Out-of-the-Money options, the premium received pays for the premium spent, allowing you to enter the trade for zero cost or even a net credit.</li>
+              <li><strong>The Catch (Risk):</strong> It represents a <em>mildly</em> bullish view. You want the stock to go up to the short strike, where profit is maximized. However, if the stock rockets past the short strike, your net position becomes short calls, exposing you to <strong>unlimited downside risk</strong>.</li>
+            </ul>
+          </div>
+        </details>
       </div>
     </div>
 
@@ -1661,65 +1675,333 @@
       <div class="question-card">
         <div class="q-header">
           <div class="q-header-left"><span class="q-number">Q-OD-38</span></div>
-          <span class="q-flag unanswered">Unanswered</span>
+          <span class="q-flag answered">Answered</span>
         </div>
         <div class="q-text">What makes an option "exotic" as opposed to "vanilla"? Name three exotic options and explain how they work.</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Exotic vs. Vanilla</h4>
+            <p><strong>Vanilla options</strong> have a standard, linear payoff that depends entirely on the spot price of the asset at expiration (European) or allow standard early exercise (American).</p>
+            <p><strong>Exotic options</strong> include additional complexities such as path-dependency, multiple underlying assets, discontinuous payoffs, or conditional triggers.</p>
+
+            <h4>📌 Three Common Exotic Options</h4>
+            <ol>
+              <li><strong>Asian Options (Path Dependent):</strong> The payoff depends on the <em>average</em> price of the underlying asset over a certain period, rather than just the price at maturity. This smooths out volatility and prevents market manipulation right before expiration.</li>
+              <li><strong>Barrier Options (Conditional):</strong> The option only activates (Knock-in) or is immediately canceled/dies (Knock-out) if the underlying asset's price touches a specific "barrier" level during the option's life.</li>
+              <li><strong>Digital / Binary Options (Discontinuous):</strong> The payoff is not a diagonal slope. Instead, it pays a fixed, flat cash amount if the option finishes In-The-Money, and zero otherwise (a step-function payoff).</li>
+            </ol>
+          </div>
+        </details>
       </div>
 
       <div class="question-card">
         <div class="q-header">
           <div class="q-header-left"><span class="q-number">Q-OD-39</span></div>
-          <span class="q-flag unanswered">Unanswered</span>
+          <span class="q-flag answered">Answered</span>
         </div>
         <div class="q-text">What is an Asian option? Is it more or less expensive than a vanilla option? Why?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 What is an Asian Option?</h4>
+            <p>An Asian option is a path-dependent exotic option whose payoff is determined by the <strong>average price</strong> of the underlying asset over a pre-set period of time, rather than just the single price at maturity.</p>
+            <ul>
+              <li><em>Payoff for Asian Call:</em> <code>Max(0, Average(S) - K)</code></li>
+            </ul>
+
+            <h4>📌 Pricing vs. Vanilla</h4>
+            <p>Asian options are <strong>less expensive (cheaper)</strong> than equivalent vanilla options.</p>
+            
+            <h4>📌 Why? (Volatility of an Average)</h4>
+            <p>The premium of an option is heavily driven by Volatility. Mathematically, the volatility of an <em>average</em> of prices is always lower than the volatility of the asset's individual daily prices. Because the averaging process smooths out extreme peaks and troughs, the effective volatility is lower. Lower volatility = Lower premium.</p>
+          </div>
+        </details>
       </div>
 
       <div class="question-card">
         <div class="q-header">
           <div class="q-header-left"><span class="q-number">Q-OD-40</span></div>
-          <span class="q-flag unanswered">Unanswered</span>
+          <span class="q-flag answered">Answered</span>
         </div>
         <div class="q-text">What is a digital (binary) option? How do you replicate it? What is the delta of a digital option at ATM?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Digital Option Definition</h4>
+            <p>A Digital (or Binary) Option pays a fixed, flat cash amount (e.g., $100) if the option finishes In-The-Money, and zero otherwise. It has a discontinuous step-function payoff at the strike.</p>
+
+            <h4>📌 Replication</h4>
+            <p>You successfully identified the replication strategy! You replicate a Digital Call using a very tight <strong>Bull Call Spread</strong>.</p>
+            <ul>
+              <li>Buy a Call at strike <code>K - ε</code></li>
+              <li>Sell a Call at strike <code>K + ε</code></li>
+              <li>Scale the quantity of this spread by <code>1 / (2ε)</code> to make the payoff exactly equal to 1.</li>
+            </ul>
+
+            <h4>📌 Delta at ATM</h4>
+            <p>There is a common misconception about the Delta. <em>At exact expiration</em>, the Delta is indeed a Dirac delta function (undefined/infinite at the strike, zero elsewhere). However, <strong>during the life of the option</strong>, the Delta is a bell-curve that peaks exactly at the strike. Therefore, before expiration, the Delta of a Digital Option is <strong>maximum (highest) at ATM</strong>. This is because the Delta of a digital option behaves mathematically like the <em>Gamma</em> of a vanilla option!</p>
+          </div>
+        </details>
       </div>
 
       <div class="question-card">
         <div class="q-header">
           <div class="q-header-left"><span class="q-number">Q-OD-41</span></div>
-          <span class="q-flag unanswered">Unanswered</span>
+          <span class="q-flag answered">Answered</span>
         </div>
         <div class="q-text">What are barrier options? Explain the four types: Up-and-In, Up-and-Out, Down-and-In, Down-and-Out. Draw the payoff of a call Up-and-Out.</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Knock-In vs. Knock-Out</h4>
+            <p>You got the definitions perfectly! Barrier options are path-dependent exotics. They are cheaper than vanilla options because the barrier adds a strict condition that limits the probability of a payout.</p>
+            <ul>
+              <li><strong>Knock-In (Activation):</strong> The option is worthless <em>unless</em> the underlying spot price touches the barrier <code>H</code> during its life.</li>
+              <li><strong>Knock-Out (Cancellation):</strong> The option behaves normally, but if the spot price touches the barrier <code>H</code>, it immediately dies and becomes worthless.</li>
+            </ul>
+
+            <h4>📈 Payoff Diagrams at Expiration</h4>
+            <p>Here are the payoff diagrams for the four types of Barrier <strong>Calls</strong>. <em>(Note: these assume the barrier has not been breached prior to expiration, so we are looking at the payoff purely based on where S<sub>T</sub> finishes relative to the barrier H)</em>.</p>
+            
+            <div class="chart-grid">
+              <!-- UP AND OUT CALL -->
+              <div class="chart-card">
+                <div class="chart-title" style="color: #F87171;">📉 Up-and-Out Call (H &gt; K)</div>
+                <svg viewBox="0 0 300 200" class="chart-svg" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Axes -->
+                  <line x1="50" y1="130" x2="280" y2="130" stroke="#64748B" stroke-width="1.5"/>
+                  <line x1="50" y1="185" x2="50" y2="15" stroke="#64748B" stroke-width="1.5"/>
+                  <text x="268" y="148" fill="#94A3B8" font-size="12" font-family="sans-serif">S<tspan font-size="9" dy="3">T</tspan></text>
+                  <text x="18" y="20" fill="#94A3B8" font-size="12" font-family="sans-serif">P&amp;L</text>
+                  <!-- K and H -->
+                  <line x1="100" y1="127" x2="100" y2="133" stroke="#94A3B8" stroke-width="1.5"/>
+                  <text x="96" y="148" fill="#CBD5E1" font-size="11" font-weight="bold" font-family="sans-serif">K</text>
+                  <line x1="200" y1="127" x2="200" y2="133" stroke="#94A3B8" stroke-width="1.5"/>
+                  <text x="196" y="148" fill="#CBD5E1" font-size="11" font-weight="bold" font-family="sans-serif">H</text>
+                  <!-- Barrier Line -->
+                  <line x1="200" y1="15" x2="200" y2="185" stroke="#F87171" stroke-width="1" stroke-dasharray="4,4"/>
+                  <text x="205" y="30" fill="#F87171" font-size="10" font-weight="bold" font-family="sans-serif">Knock-Out</text>
+                  <!-- P&L Line -->
+                  <!-- From 50 to 100, flat at -P. From 100 to 200, slope 1. At 200, drops to -P. -->
+                  <polyline points="50,150 100,150 200,50" fill="none" stroke="#60A5FA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                  <polyline points="200,150 280,150" fill="none" stroke="#60A5FA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                  <!-- Drop -->
+                  <line x1="200" y1="50" x2="200" y2="150" stroke="#60A5FA" stroke-width="2" stroke-dasharray="2,2"/>
+                </svg>
+                <p style="font-size: 0.85rem; color: #94A3B8; margin-top: 12px; line-height: 1.4; text-align: center;">If the spot price rises too high and touches the barrier H, the option is immediately cancelled. Otherwise, it behaves like a standard call.</p>
+              </div>
+
+              <!-- UP AND IN CALL -->
+              <div class="chart-card">
+                <div class="chart-title" style="color: #34D399;">📈 Up-and-In Call (H &gt; K)</div>
+                <svg viewBox="0 0 300 200" class="chart-svg" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Axes -->
+                  <line x1="50" y1="130" x2="280" y2="130" stroke="#64748B" stroke-width="1.5"/>
+                  <line x1="50" y1="185" x2="50" y2="15" stroke="#64748B" stroke-width="1.5"/>
+                  <text x="268" y="148" fill="#94A3B8" font-size="12" font-family="sans-serif">S<tspan font-size="9" dy="3">T</tspan></text>
+                  <text x="18" y="20" fill="#94A3B8" font-size="12" font-family="sans-serif">P&amp;L</text>
+                  <!-- K and H -->
+                  <line x1="100" y1="127" x2="100" y2="133" stroke="#94A3B8" stroke-width="1.5"/>
+                  <text x="96" y="148" fill="#CBD5E1" font-size="11" font-weight="bold" font-family="sans-serif">K</text>
+                  <line x1="200" y1="127" x2="200" y2="133" stroke="#94A3B8" stroke-width="1.5"/>
+                  <text x="196" y="148" fill="#CBD5E1" font-size="11" font-weight="bold" font-family="sans-serif">H</text>
+                  <!-- Barrier Line -->
+                  <line x1="200" y1="15" x2="200" y2="185" stroke="#34D399" stroke-width="1" stroke-dasharray="4,4"/>
+                  <text x="205" y="30" fill="#34D399" font-size="10" font-weight="bold" font-family="sans-serif">Knock-In</text>
+                  <!-- P&L Line -->
+                  <!-- From 50 to 200, flat at -P. At 200, jumps to intrinsic. -->
+                  <polyline points="50,150 200,150" fill="none" stroke="#60A5FA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                  <polyline points="200,50 280,-30" fill="none" stroke="#60A5FA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                  <!-- Jump -->
+                  <line x1="200" y1="150" x2="200" y2="50" stroke="#60A5FA" stroke-width="2" stroke-dasharray="2,2"/>
+                </svg>
+                <p style="font-size: 0.85rem; color: #94A3B8; margin-top: 12px; line-height: 1.4; text-align: center;">The option is completely worthless unless the spot price rises and touches the barrier H, at which point it activates into a standard call.</p>
+              </div>
+
+              <!-- DOWN AND OUT CALL -->
+              <div class="chart-card">
+                <div class="chart-title" style="color: #F87171;">📉 Down-and-Out Call (H &lt; K)</div>
+                <svg viewBox="0 0 300 200" class="chart-svg" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Axes -->
+                  <line x1="50" y1="130" x2="280" y2="130" stroke="#64748B" stroke-width="1.5"/>
+                  <line x1="50" y1="185" x2="50" y2="15" stroke="#64748B" stroke-width="1.5"/>
+                  <text x="268" y="148" fill="#94A3B8" font-size="12" font-family="sans-serif">S<tspan font-size="9" dy="3">T</tspan></text>
+                  <text x="18" y="20" fill="#94A3B8" font-size="12" font-family="sans-serif">P&amp;L</text>
+                  <!-- H and K -->
+                  <line x1="90" y1="127" x2="90" y2="133" stroke="#94A3B8" stroke-width="1.5"/>
+                  <text x="86" y="148" fill="#CBD5E1" font-size="11" font-weight="bold" font-family="sans-serif">H</text>
+                  <line x1="150" y1="127" x2="150" y2="133" stroke="#94A3B8" stroke-width="1.5"/>
+                  <text x="146" y="148" fill="#CBD5E1" font-size="11" font-weight="bold" font-family="sans-serif">K</text>
+                  <!-- Barrier Line -->
+                  <line x1="90" y1="15" x2="90" y2="185" stroke="#F87171" stroke-width="1" stroke-dasharray="4,4"/>
+                  <text x="55" y="30" fill="#F87171" font-size="10" font-weight="bold" font-family="sans-serif">Out</text>
+                  <rect x="50" y="15" width="40" height="170" fill="#F87171" fill-opacity="0.1"/>
+                  <!-- P&L Line -->
+                  <!-- If it stays above H, it's a normal call. So starting just right of H, flat at -P, then up. -->
+                  <polyline points="90,150 150,150 260,40" fill="none" stroke="#60A5FA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <p style="font-size: 0.85rem; color: #94A3B8; margin-top: 12px; line-height: 1.4; text-align: center;">The option behaves like a standard call, unless the spot price drops and touches the barrier H below, which instantly cancels the option.</p>
+              </div>
+
+              <!-- DOWN AND IN CALL -->
+              <div class="chart-card">
+                <div class="chart-title" style="color: #34D399;">📈 Down-and-In Call (H &lt; K)</div>
+                <svg viewBox="0 0 300 200" class="chart-svg" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Axes -->
+                  <line x1="50" y1="130" x2="280" y2="130" stroke="#64748B" stroke-width="1.5"/>
+                  <line x1="50" y1="185" x2="50" y2="15" stroke="#64748B" stroke-width="1.5"/>
+                  <text x="268" y="148" fill="#94A3B8" font-size="12" font-family="sans-serif">S<tspan font-size="9" dy="3">T</tspan></text>
+                  <text x="18" y="20" fill="#94A3B8" font-size="12" font-family="sans-serif">P&amp;L</text>
+                  <!-- H and K -->
+                  <line x1="90" y1="127" x2="90" y2="133" stroke="#94A3B8" stroke-width="1.5"/>
+                  <text x="86" y="148" fill="#CBD5E1" font-size="11" font-weight="bold" font-family="sans-serif">H</text>
+                  <line x1="150" y1="127" x2="150" y2="133" stroke="#94A3B8" stroke-width="1.5"/>
+                  <text x="146" y="148" fill="#CBD5E1" font-size="11" font-weight="bold" font-family="sans-serif">K</text>
+                  <!-- Barrier Line -->
+                  <line x1="90" y1="15" x2="90" y2="185" stroke="#34D399" stroke-width="1" stroke-dasharray="4,4"/>
+                  <text x="55" y="30" fill="#34D399" font-size="10" font-weight="bold" font-family="sans-serif">In</text>
+                  <rect x="50" y="15" width="40" height="170" fill="#34D399" fill-opacity="0.1"/>
+                  <!-- P&L Line -->
+                  <!-- Normal call IF it touched H. -->
+                  <polyline points="90,150 150,150 260,40" fill="none" stroke="#60A5FA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                  <text x="160" y="110" fill="#94A3B8" font-size="10" font-style="italic" font-family="sans-serif">(If H was touched)</text>
+                </svg>
+                <p style="font-size: 0.85rem; color: #94A3B8; margin-top: 12px; line-height: 1.4; text-align: center;">The option remains inactive and worthless until the spot price drops to touch the barrier H below, at which point it becomes a live standard call.</p>
+              </div>
+            </div>
+          </div>
+        </details>
       </div>
 
       <div class="question-card">
         <div class="q-header">
           <div class="q-header-left"><span class="q-number">Q-OD-42</span></div>
-          <span class="q-flag unanswered">Unanswered</span>
+          <span class="q-flag answered">Answered</span>
         </div>
         <div class="q-text">What is the volatility smile? Draw it for equities. Is it symmetrical? Why does it have that shape? How does the smile differ for FX and commodities?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 The Volatility Smile / Skew</h4>
+            <p>Black-Scholes assumes implied volatility is constant across all strikes. In reality, options with different strikes (but the same maturity) have different implied volatilities. When plotted, they form a "smile" or "skew" shape.</p>
+
+            <div class="chart-grid">
+              <div class="chart-card">
+                <div class="chart-title" style="color: #A78BFA;">📉 Equity Volatility Skew (Smirk)</div>
+                <svg viewBox="0 0 300 200" class="chart-svg" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Axes -->
+                  <line x1="50" y1="170" x2="280" y2="170" stroke="#64748B" stroke-width="1.5"/>
+                  <line x1="50" y1="185" x2="50" y2="15" stroke="#64748B" stroke-width="1.5"/>
+                  <text x="268" y="188" fill="#94A3B8" font-size="12" font-family="sans-serif">Strike (K)</text>
+                  <text x="10" y="20" fill="#94A3B8" font-size="12" font-family="sans-serif">Implied Vol</text>
+                  
+                  <!-- ATM Marker -->
+                  <line x1="150" y1="167" x2="150" y2="173" stroke="#94A3B8" stroke-width="1.5"/>
+                  <text x="135" y="188" fill="#CBD5E1" font-size="11" font-weight="bold" font-family="sans-serif">ATM</text>
+                  <line x1="150" y1="170" x2="150" y2="15" stroke="#475569" stroke-width="1" stroke-dasharray="2,4"/>
+
+                  <!-- Volatility Skew Curve -->
+                  <!-- High IV for low strikes (OTM Puts), dipping near ATM, slight rise for high strikes (OTM Calls) -->
+                  <path d="M 60 40 Q 150 200 260 130" fill="none" stroke="#A78BFA" stroke-width="3" stroke-linecap="round"/>
+                  
+                  <!-- Annotations -->
+                  <text x="60" y="30" fill="#F43F5E" font-size="10" font-weight="bold" font-family="sans-serif">OTM Puts</text>
+                  <text x="230" y="120" fill="#10B981" font-size="10" font-weight="bold" font-family="sans-serif">OTM Calls</text>
+                </svg>
+              </div>
+            </div>
+
+            <h4>📌 Symmetry & Causes</h4>
+            <ul>
+              <li><strong>Equities (Asymmetrical):</strong> The curve is highly asymmetrical (a "smirk"). Implied volatility is much higher for low strikes (OTM Puts) than high strikes (OTM Calls). 
+                <div style="margin-top: 10px;"><em>Why?</em>
+                  <ol style="margin-top: 5px; margin-bottom: 0; padding-left: 24px;">
+                    <li><strong>Crashophobia:</strong> Market participants fear crashes and aggressively buy OTM puts for portfolio protection, driving up their premium and implied volatility.</li>
+                    <li><strong>Leverage Effect:</strong> As equity prices fall, a company's debt-to-equity ratio increases, making the stock inherently more risky/volatile.</li>
+                  </ol>
+                </div>
+              </li>
+              <li><strong>Foreign Exchange (FX) (Symmetrical):</strong> The curve is generally a symmetric "smile". 
+                <div style="margin-top: 10px;"><em>Why?</em> Currencies represent a relative pair. A crash in one is a surge in the other. There is no structural "crashophobia" biased to one direction, so OTM calls and puts are priced with similar fat-tail probabilities.</div>
+              </li>
+            </ul>
+          </div>
+        </details>
       </div>
 
       <div class="question-card">
         <div class="q-header">
           <div class="q-header-left"><span class="q-number">Q-OD-43</span></div>
-          <span class="q-flag unanswered">Unanswered</span>
+          <span class="q-flag answered">Answered</span>
         </div>
         <div class="q-text">What is the difference between historical volatility and implied volatility?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Historical Volatility (Backward-Looking)</h4>
+            <p>Historical volatility is the realized volatility of the underlying asset over a past period. It is calculated statistically (e.g., standard deviation) from the actual daily price returns that have already occurred in the market.</p>
+            
+            <h4>📌 Implied Volatility (Forward-Looking)</h4>
+            <p>Implied volatility is backed out from the <em>current</em> market price of an option using a pricing model (like Black-Scholes). It represents the market's expectation of future volatility over the remaining life of the option. It is driven purely by supply and demand for the option.</p>
+          </div>
+        </details>
       </div>
 
       <div class="question-card">
         <div class="q-header">
           <div class="q-header-left"><span class="q-number">Q-OD-44</span></div>
-          <span class="q-flag unanswered">Unanswered</span>
+          <span class="q-flag answered">Answered</span>
         </div>
         <div class="q-text">I have a call with strike 100 and underlying at 105. Is the implied volatility of the corresponding put higher, lower, or equal? Why?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 The "Trick" Question</h4>
+            <p>They are <strong>exactly equal</strong>! This is a classic interview trick question designed to make you overthink the volatility skew.</p>
+
+            <h4>📌 Put-Call Parity dictates Equality</h4>
+            <p>By Put-Call Parity: <code>C - P = S - K * e<sup>-rT</sup></code>. A Call and a Put with the exact same strike <em>K</em> and maturity <em>T</em> are mathematically linked by an arbitrage relationship. They <strong>must</strong> have the exact same implied volatility.</p>
+            <p>If the OTM Put had a higher implied volatility than the ITM Call at the <em>same strike</em>, an arbitrageur could simply buy the "cheap" vol option, sell the "expensive" vol option, and hedge with the underlying stock to lock in a risk-free profit. Therefore, market forces keep <code>IV(Call) = IV(Put)</code> for any given strike.</p>
+          </div>
+        </details>
       </div>
 
       <div class="question-card">
         <div class="q-header">
           <div class="q-header-left"><span class="q-number">Q-OD-45</span></div>
-          <span class="q-flag unanswered">Unanswered</span>
+          <span class="q-flag answered">Answered</span>
         </div>
         <div class="q-text">What volatility models do you know? What is a local volatility model? What is GARCH and why do we use it to simulate volatility?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Types of Volatility Models</h4>
+            <p>To go beyond the basic Black-Scholes assumption of constant volatility, quants use more advanced models:</p>
+            <ul>
+              <li><strong>Local Volatility Models:</strong> (e.g., Dupire model)</li>
+              <li><strong>Stochastic Volatility Models:</strong> (e.g., Heston model, SABR model)</li>
+              <li><strong>Time-Series Models:</strong> (e.g., EWMA, GARCH)</li>
+            </ul>
+
+            <h4>📌 What is a Local Volatility Model?</h4>
+            <p>In a Local Volatility model, volatility is not constant, nor is it randomly fluctuating. Instead, volatility is a strict, <strong>deterministic function of both the current asset price and time</strong>: <code>σ(S, t)</code>. The most famous is the Dupire model, which takes the current implied volatility surface observed in the market and reverse-engineers a unique volatility function that perfectly prices all vanilla options. It ensures no-arbitrage pricing consistency.</p>
+
+            <h4>📌 What is GARCH?</h4>
+            <p><strong>GARCH</strong> stands for <em>Generalized Autoregressive Conditional Heteroskedasticity</em>. It is a statistical time-series model used to forecast variance.</p>
+            <ul>
+              <li><strong>Why do we use it?</strong> Financial markets exhibit two massive phenomena that Black-Scholes ignores: <strong>Volatility Clustering</strong> (large changes tend to be followed by large changes) and <strong>Mean Reversion</strong> (volatility eventually reverts to a long-term average). GARCH explicitly models both of these behaviors, making it incredibly powerful for simulating realistic future volatility paths for risk management (VaR) and pricing path-dependent exotics.</li>
+            </ul>
+          </div>
+        </details>
       </div>
     </div>
 
