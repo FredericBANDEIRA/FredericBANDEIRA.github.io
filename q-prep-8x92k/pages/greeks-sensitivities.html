@@ -25,44 +25,245 @@
     <div class="page-stats">
       <div class="stat"><span class="stat-num">35</span> questions</div>
       <div class="stat-divider"></div>
-      <div class="stat"><span class="stat-num">0</span> answered</div>
+      <div class="stat"><span class="stat-num">10</span> answered</div>
       <div class="stat-divider"></div>
-      <div class="stat"><span class="stat-num">35</span> remaining</div>
+      <div class="stat"><span class="stat-num">25</span> remaining</div>
     </div>
 
     <!-- DELTA -->
     <div class="question-section">
       <h2><span class="section-icon">Δ</span> Delta</h2>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-GS-01</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">What is the delta of an option? Give the mathematical definition.</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-GS-01</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">What is the delta of an option? Give the mathematical definition.</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Definition</h4>
+            <p>The delta (Δ) of an option represents the sensitivity of the option's price to a $1 change in the price of the underlying asset. It tells you how much the premium will move if the spot price moves by one unit.</p>
+            
+            <h4>📌 Mathematical Definition</h4>
+            <p>Mathematically, it is the first partial derivative of the option's price (V) with respect to the underlying asset's spot price (S):</p>
+            <p style="text-align: center; font-size: 1.1rem;"><code>Δ = ∂V / ∂S</code></p>
+          </div>
+        </details>
+      </div>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-GS-02</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">What is the sign of your delta when you are: long call, long put, short call, short put?</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-GS-02</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">What is the sign of your delta when you are: long call, long put, short call, short put?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Delta Signs</h4>
+            <ul>
+              <li><strong>Long Call:</strong> <span style="color: #10B981; font-weight: bold;">Positive (+)</span> — As the stock goes up, your call gains value.</li>
+              <li><strong>Long Put:</strong> <span style="color: #EF4444; font-weight: bold;">Negative (-)</span> — As the stock goes up, your put loses value.</li>
+              <li><strong>Short Call:</strong> <span style="color: #EF4444; font-weight: bold;">Negative (-)</span> — You are short the call, so if the stock goes up, the liability increases (you lose money).</li>
+              <li><strong>Short Put:</strong> <span style="color: #10B981; font-weight: bold;">Positive (+)</span> — You are short the put, so if the stock goes up, the put loses value and your liability decreases (you make money).</li>
+            </ul>
+          </div>
+        </details>
+      </div>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-GS-03</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">What is the delta of a call ATM? Between what values can the delta of a call fluctuate? And for a put?</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-GS-03</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">What is the delta of a call ATM? Between what values can the delta of a call fluctuate? And for a put?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 ATM Delta</h4>
+            <p>The delta of an At-The-Money (ATM) Call is <strong>slightly above 0.5</strong> (e.g., ~0.52 to 0.55). It is not exactly 0.5 due to the log-normal distribution of stock prices in the Black-Scholes model, which slightly skews the probability. The delta of an ATM Put is <strong>slightly above -0.5</strong> (closer to zero, e.g., ~-0.48).</p>
+            
+            <h4>📌 Fluctuations (Bounds)</h4>
+            <ul>
+              <li><strong>Call Option Delta:</strong> Fluctuates between <strong>0</strong> (deep OTM) and <strong>1</strong> (deep ITM).</li>
+              <li><strong>Put Option Delta:</strong> Fluctuates between <strong>-1</strong> (deep ITM) and <strong>0</strong> (deep OTM).</li>
+            </ul>
+          </div>
+        </details>
+      </div>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-GS-04</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">Draw the graph of delta as a function of the spot price. How does the delta evolve from deep OTM to deep ITM?</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-GS-04</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">Draw the graph of delta as a function of the spot price. How does the delta evolve from deep OTM to deep ITM?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Evolution of Delta</h4>
+            <p>For a Call option, the delta evolves in an "S-curve" (sigmoid) shape as the underlying spot price increases. It starts near <strong>0</strong> (when deep OTM), accelerates as it approaches the strike (crossing ~0.5 at ATM), and flattens out near <strong>1</strong> (when deep ITM).</p>
+            
+            <div class="chart-grid">
+              <div class="chart-card">
+                <div class="chart-title" style="color: #60A5FA;">📈 Call Delta vs Spot Price</div>
+                <svg viewBox="0 0 300 200" class="chart-svg" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Axes -->
+                  <line x1="50" y1="185" x2="280" y2="185" stroke="#64748B" stroke-width="1.5"/>
+                  <line x1="50" y1="185" x2="50" y2="15" stroke="#64748B" stroke-width="1.5"/>
+                  <text x="268" y="198" fill="#94A3B8" font-size="12" font-family="sans-serif">Spot</text>
+                  <text x="18" y="20" fill="#94A3B8" font-size="12" font-family="sans-serif">Delta</text>
+                  <text x="35" y="185" fill="#94A3B8" font-size="12" font-family="sans-serif">0</text>
+                  <text x="35" y="25" fill="#94A3B8" font-size="12" font-family="sans-serif">1</text>
+                  
+                  <!-- Strike K -->
+                  <line x1="150" y1="182" x2="150" y2="188" stroke="#94A3B8" stroke-width="1.5"/>
+                  <text x="146" y="198" fill="#CBD5E1" font-size="11" font-weight="bold" font-family="sans-serif">K</text>
+                  <line x1="150" y1="185" x2="150" y2="15" stroke="#475569" stroke-width="1" stroke-dasharray="2,4"/>
+                  
+                  <!-- Max Delta Line (1.0) -->
+                  <line x1="50" y1="20" x2="280" y2="20" stroke="#475569" stroke-width="1" stroke-dasharray="2,4"/>
+                  
+                  <!-- Delta at Maturity (Step Function) -->
+                  <!-- 0 up to K, then jumps to 1 -->
+                  <polyline points="50,185 150,185 150,20 280,20" fill="none" stroke="#F43F5E" stroke-width="2" stroke-dasharray="4,4"/>
+                  
+                  <!-- Delta Before Maturity (S-Curve) -->
+                  <!-- Q is quadratic bezier: start, control, end. T is smooth continuation -->
+                  <path d="M 50 185 Q 120 185 150 102.5 T 280 20" fill="none" stroke="#60A5FA" stroke-width="3" stroke-linecap="round"/>
+                  
+                  <!-- Annotations -->
+                  <text x="60" y="170" fill="#60A5FA" font-size="10" font-weight="bold" font-family="sans-serif">Before Maturity</text>
+                  <text x="160" y="150" fill="#F43F5E" font-size="10" font-weight="bold" font-family="sans-serif">At Maturity</text>
+                </svg>
+              </div>
+            </div>
+            
+            <h4>📌 Note on Maturity</h4>
+            <p>As the option gets closer and closer to maturity, this S-curve becomes steeper and steeper, eventually converging into a strict <strong>step-function</strong> exactly at maturity (Delta is exactly 0 if OTM, and exactly 1 if ITM).</p>
+          </div>
+        </details>
+      </div>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-GS-05</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">Can the delta of an option ever exceed the notional of the option?</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-GS-05</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">Can the delta of an option ever exceed the notional of the option?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Vanilla Options vs Exotics</h4>
+            <p>For a standard <strong>vanilla option</strong> (Call or Put), the answer is <strong>No</strong>. The absolute value of delta is strictly bounded between 0 and 1. The option cannot move more than 1-for-1 with the underlying asset.</p>
+            <p>However, for <strong>exotic options</strong> (like Digital / Binary options or Barrier options), the answer is <strong>Yes</strong>! For a digital option right at the strike price moments before expiration, the payoff jumps discontinuously from 0 to 1. This means an infinitesimally small change in the spot price causes a massive change in the option's value. The delta approaches infinity (Δ &gt; 1) at that specific point.</p>
+          </div>
+        </details>
+      </div>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-GS-06</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">What is delta hedging? Why must you continuously readjust your delta hedge?</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-GS-06</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">What is delta hedging? Why must you continuously readjust your delta hedge?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Delta Hedging</h4>
+            <p>Delta hedging is the process of neutralizing the directional risk of an options position by taking an offsetting position in the underlying asset. The goal is to make the total portfolio delta zero (<code>Δ = 0</code>), ensuring the portfolio's value doesn't change for small moves in the underlying spot price.</p>
+            
+            <h4>📌 Why Continuous Readjustment? (Dynamic Hedging)</h4>
+            <p>Because delta is not constant! As the underlying spot price moves, the delta of the option changes (this rate of change is called <strong>Gamma</strong>). Therefore, a hedge ratio that is perfectly delta-neutral today will no longer be neutral tomorrow if the stock price has moved. To remain perfectly delta-neutral, a trader must constantly buy or sell the underlying asset to readjust the hedge.</p>
+          </div>
+        </details>
+      </div>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-GS-07</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">I short 100 calls at 50% delta on Apple. How do I hedge?</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-GS-07</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">I short 100 calls at 50% delta on Apple. How do I hedge?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Calculation</h4>
+            <p>Your position is short calls, so your delta is negative. Specifically:<br>
+            <code>-100 (calls) × 0.50 (delta) = -50</code> total delta.</p>
+            
+            <h4>📌 The Hedge</h4>
+            <p>To hedge a negative 50 delta, you need to add a positive 50 delta to your portfolio. Since 1 share of stock always has exactly 1 delta (it moves 1-for-1 with itself), you simply <strong>buy 50 shares</strong> of Apple stock.</p>
+          </div>
+        </details>
+      </div>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-GS-08</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">Exercise: Spot = 125, long call strike 140, delta = 0.4, gamma is flat, premium = 8. The spot moves to 127. What is the new premium?</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-GS-08</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">Exercise: Spot = 125, long call strike 140, delta = 0.4, gamma is flat, premium = 8. The spot moves to 127. What is the new premium?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Calculation</h4>
+            <p>Because gamma is flat (zero), the delta does not change as the underlying moves. The price of the underlying increased by <strong>2 units</strong> (from 125 to 127).</p>
+            <ul>
+              <li>Change in Option Price = Change in Spot × Delta</li>
+              <li>Change in Option Price = 2 × 0.4 = <strong>+0.8</strong></li>
+            </ul>
+            <p>The new premium is the old premium plus the change: <code>8 + 0.8 = 8.8</code>.</p>
+          </div>
+        </details>
+      </div>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-GS-09</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">How does the delta of a call ATM change as time to maturity decreases?</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-GS-09</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">How does the delta of a call ATM change as time to maturity decreases?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 The "Anchor" Point</h4>
+            <p>The delta of an At-The-Money (ATM) call is anchored near <strong>0.5</strong>. As time to maturity decreases, the ATM delta does not move away from this anchor. It stays roughly at 0.5.</p>
+            <p><em>Note:</em> What <em>does</em> change is the slope of the curve around the ATM point. As maturity approaches, the transition from 0 (OTM) to 1 (ITM) becomes much steeper, eventually becoming a vertical step function at expiration. But the midpoint (ATM) stays anchored at ~0.5.</p>
+          </div>
+        </details>
+      </div>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-GS-10</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">How does the delta of an ITM call change if implied volatility increases?</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-GS-10</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">How does the delta of an ITM call change if implied volatility increases?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Decreasing Delta</h4>
+            <p>The delta of an ITM call will <strong>decrease</strong> (move away from 1 and closer to 0.5) if implied volatility increases.</p>
+            
+            <h4>📌 Why?</h4>
+            <p>Higher volatility means wider price swings. If an option is currently deeply ITM (delta near 1, very high probability of expiring ITM), an increase in volatility means there is now a higher chance that a massive swing could push the underlying spot price all the way down, causing the option to expire OTM. Because the probability of expiring ITM is now less "certain", the delta drops towards 0.5.</p>
+            <p><em>(Conversely, for an OTM option, higher volatility increases the chance it might swing into the money, so its delta increases towards 0.5. In short: high vol pulls all deltas towards 0.5).</em></p>
+          </div>
+        </details>
+      </div>
     </div>
 
     <!-- GAMMA -->
