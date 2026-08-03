@@ -25,9 +25,9 @@
     <div class="page-stats">
       <div class="stat"><span class="stat-num">35</span> questions</div>
       <div class="stat-divider"></div>
-      <div class="stat"><span class="stat-num">10</span> answered</div>
+      <div class="stat"><span class="stat-num">35</span> answered</div>
       <div class="stat-divider"></div>
-      <div class="stat"><span class="stat-num">25</span> remaining</div>
+      <div class="stat"><span class="stat-num">0</span> remaining</div>
     </div>
 
     <!-- DELTA -->
@@ -270,95 +270,556 @@
     <div class="question-section">
       <h2><span class="section-icon">Γ</span> Gamma</h2>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-GS-11</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">What is gamma? What is its sign when you are long a call? Is it the same for a put?</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-GS-11</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">What is gamma? What is its sign when you are long a call? Is it the same for a put?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Definition</h4>
+            <p>Gamma (Γ) measures the rate of change of an option's Delta with respect to a $1 change in the underlying asset's price. Mathematically, it is the second partial derivative of the option's price with respect to the spot price: <code>Γ = ∂²V / ∂S² = ∂Δ / ∂S</code>. It represents the <strong>convexity</strong> of the option's value relative to the underlying.</p>
+            
+            <h4>📌 Sign of Gamma</h4>
+            <p>Gamma is always <strong>positive</strong> for any long option position (whether it is a Long Call or a Long Put). Being long an option means you benefit from large moves in the underlying asset, which is what positive gamma represents.</p>
+          </div>
+        </details>
+      </div>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-GS-12</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">Why is gamma maximum at ATM? (Hint: convexity)</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-GS-12</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">Why is gamma maximum at ATM? (Hint: convexity)</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Maximum at ATM</h4>
+            <p>Gamma represents how fast the delta is changing. Delta changes the most aggressively exactly when the option transitions from being Out-of-the-Money to In-the-Money (the ATM point). Think of the delta S-curve: it is steepest right in the middle.</p>
+            <p>Economically, ATM options have the highest uncertainty regarding whether they will expire worthless or with intrinsic value. A small move in the spot price drastically shifts that probability, resulting in the highest convexity (gamma).</p>
+          </div>
+        </details>
+      </div>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-GS-13</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">Draw the graph of gamma. How does it change for a shorter maturity option?</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-GS-13</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">Draw the graph of gamma. How does it change for a shorter maturity option?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Gamma vs Maturity</h4>
+            <p>Gamma looks like a bell curve centered at the strike price (ATM). As maturity approaches, this bell curve becomes taller and narrower. Exactly at maturity, it collapses into a spike (a Dirac delta function) at the strike, because the delta shifts instantly from 0 to 1.</p>
+            
+            <div class="chart-grid">
+              <div class="chart-card">
+                <div class="chart-title" style="color: #A78BFA;">📉 Gamma vs Spot Price (Maturity Effect)</div>
+                <svg viewBox="0 0 300 200" class="chart-svg" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Axes -->
+                  <line x1="50" y1="185" x2="280" y2="185" stroke="#64748B" stroke-width="1.5"/>
+                  <line x1="50" y1="185" x2="50" y2="15" stroke="#64748B" stroke-width="1.5"/>
+                  <text x="268" y="198" fill="#94A3B8" font-size="12" font-family="sans-serif">Spot</text>
+                  <text x="18" y="20" fill="#94A3B8" font-size="12" font-family="sans-serif">Gamma</text>
+                  <text x="35" y="185" fill="#94A3B8" font-size="12" font-family="sans-serif">0</text>
+                  
+                  <!-- Strike K -->
+                  <line x1="150" y1="182" x2="150" y2="188" stroke="#94A3B8" stroke-width="1.5"/>
+                  <text x="146" y="198" fill="#CBD5E1" font-size="11" font-weight="bold" font-family="sans-serif">K (ATM)</text>
+                  <line x1="150" y1="185" x2="150" y2="15" stroke="#475569" stroke-width="1" stroke-dasharray="2,4"/>
+                  
+                  <!-- Long Maturity (Wide Bell) -->
+                  <path d="M 50 185 Q 100 185 115 150 Q 150 70 185 150 Q 200 185 280 185" fill="none" stroke="#60A5FA" stroke-width="2"/>
+                  <!-- Medium Maturity (Taller, narrower) -->
+                  <path d="M 50 185 Q 120 185 130 130 Q 150 40 170 130 Q 180 185 280 185" fill="none" stroke="#A78BFA" stroke-width="3"/>
+                  <!-- Very Short Maturity (Spike) -->
+                  <path d="M 50 185 L 140 185 L 150 15 L 160 185 L 280 185" fill="none" stroke="#F43F5E" stroke-width="2" stroke-dasharray="4,4"/>
+                  
+                  <!-- Legend -->
+                  <line x1="200" y1="30" x2="220" y2="30" stroke="#60A5FA" stroke-width="2"/>
+                  <text x="225" y="33" fill="#94A3B8" font-size="9" font-family="sans-serif">Long T</text>
+                  
+                  <line x1="200" y1="45" x2="220" y2="45" stroke="#A78BFA" stroke-width="3"/>
+                  <text x="225" y="48" fill="#94A3B8" font-size="9" font-family="sans-serif">Short T</text>
+                  
+                  <line x1="200" y1="60" x2="220" y2="60" stroke="#F43F5E" stroke-width="2" stroke-dasharray="4,4"/>
+                  <text x="225" y="63" fill="#94A3B8" font-size="9" font-family="sans-serif">Expiry</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </details>
+      </div>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-GS-14</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">I am delta neutral and anticipate a significant move in the underlying. How should I position my gamma? What option combinations reproduce such a position?</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-GS-14</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">I am delta neutral and anticipate a significant move in the underlying. How should I position my gamma? What option combinations reproduce such a position?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Long Gamma</h4>
+            <p>If you expect a massive directional move (volatility breakout) but don't know which direction, you want to be <strong>Long Gamma</strong> while remaining Delta Neutral. Being long gamma means your delta becomes positive as the market rallies (getting you long), and negative as the market crashes (getting you short). You make money dynamically as long as the move is large enough.</p>
+            
+            <h4>📌 Strategies</h4>
+            <ul>
+              <li><strong>Long Straddle:</strong> Buy a Call and Buy a Put at the same ATM strike. (High cost, highest gamma).</li>
+              <li><strong>Long Strangle:</strong> Buy an OTM Call and Buy an OTM Put. (Cheaper, but requires an even larger move to become profitable).</li>
+            </ul>
+          </div>
+        </details>
+      </div>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-GS-15</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">Exercise: Delta = 300M€, Gamma = 100M€. The market moves +5%. How does my position evolve?</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-GS-15</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">Exercise: Delta = 300M€, Gamma = 100M€. The market moves +5%. How does my position evolve?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Evolution of Delta</h4>
+            <p>Gamma is the change in Delta. Assuming Gamma is quoted in cash terms per 1% move:<br>
+            <code>New Delta = Old Delta + (Gamma × Move)</code><br>
+            <code>New Delta = 300M + (100M × 5) = 800M€</code></p>
+            
+            <h4>📌 Evolution of P&amp;L (Taylor Expansion)</h4>
+            <p>Your total P&amp;L comes from both the linear Delta component and the convex Gamma component (which is squared):<br>
+            <code>P&amp;L ≈ (Delta × Move) + 0.5 × Gamma × (Move)²</code><br>
+            <em>*Assuming the move is expressed as units of 1% (so move = 5).</em><br>
+            <code>P&amp;L ≈ (300M × 5) + 0.5 × 100M × (5)²</code><br>
+            <code>P&amp;L ≈ 1,500M + 1,250M = +2.75 Billion €</code></p>
+          </div>
+        </details>
+      </div>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-GS-16</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">At what frequency do you hedge your delta when you are short gamma? And when you are long gamma?</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-GS-16</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">At what frequency do you hedge your delta when you are short gamma? And when you are long gamma?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Short Gamma: High Frequency</h4>
+            <p>When you are short gamma, you lose money on large moves. You are "bleeding" convexity. Therefore, you must hedge <strong>as frequently as possible (continuously)</strong> to lock in small losses before they compound into massive ones.</p>
+            
+            <h4>📌 Long Gamma: Low Frequency</h4>
+            <p>When you are long gamma, you make money on large moves. You are gaining convexity. You want to let the profits "run" as the market moves away from your strike, so you hedge <strong>less frequently</strong> (e.g., at the end of the day or only after a large threshold is breached) before resetting your delta to zero.</p>
+          </div>
+        </details>
+      </div>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-GS-17</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">Why can you never be both gamma neutral and theta neutral at the same time?</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-GS-17</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">Why can you never be both gamma neutral and theta neutral at the same time?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 The Black-Scholes PDE</h4>
+            <p>Gamma and Theta are mathematically tied together via the Black-Scholes PDE. For a delta-neutral portfolio (<code>Δ = 0</code>), the equation simplifies to:</p>
+            <p style="text-align: center; font-size: 1.1rem;"><code>Θ + ½ σ² S² Γ = rV</code></p>
+            <p>Assuming interest rates (r) are zero or negligible, <code>Θ ≈ -½ σ² S² Γ</code>. Because variance (σ²) and price squared (S²) are always strictly positive, <strong>Theta and Gamma must always have opposite signs</strong>.</p>
+            <p>You either pay Theta (time decay) to hold Gamma (long options), or you collect Theta by taking on Gamma risk (short options). You cannot neutralize both simultaneously without flattening your entire position.</p>
+          </div>
+        </details>
+      </div>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-GS-18</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">How does gamma change when implied volatility increases?</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-GS-18</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">How does gamma change when implied volatility increases?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 It Flattens Out</h4>
+            <p>When implied volatility increases, the gamma bell curve <strong>flattens and widens</strong>. The peak at ATM decreases, but the "wings" (deep ITM and OTM) slightly increase.</p>
+            <p><em>Why?</em> Higher volatility spreads the probability distribution over a much wider range of strikes. Because the stock is now expected to swing wildly, the delta transitions from 0 to 1 much more gradually over a wider price range, meaning the rate of change of delta (Gamma) is lower near the strike but non-zero further away.</p>
+          </div>
+        </details>
+      </div>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-GS-19</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">What is the gamma of a call spread? How does it differ from a single call?</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-GS-19</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">What is the gamma of a call spread? How does it differ from a single call?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Two Peaks (One Positive, One Negative)</h4>
+            <p>A Call Spread involves going Long a Call at strike K₁ and Short a Call at strike K₂. Because long calls have positive gamma and short calls have negative gamma, the overall gamma profile has <strong>two peaks</strong>.</p>
+            
+            <div class="chart-grid">
+              <div class="chart-card">
+                <div class="chart-title" style="color: #60A5FA;">📈 Call Spread Gamma vs Spot</div>
+                <svg viewBox="0 0 300 200" class="chart-svg" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Axes -->
+                  <line x1="50" y1="100" x2="280" y2="100" stroke="#64748B" stroke-width="1.5"/>
+                  <line x1="50" y1="185" x2="50" y2="15" stroke="#64748B" stroke-width="1.5"/>
+                  <text x="268" y="113" fill="#94A3B8" font-size="12" font-family="sans-serif">Spot</text>
+                  <text x="18" y="20" fill="#94A3B8" font-size="12" font-family="sans-serif">Gamma</text>
+                  <text x="35" y="100" fill="#94A3B8" font-size="12" font-family="sans-serif">0</text>
+                  
+                  <!-- K1 and K2 -->
+                  <line x1="120" y1="97" x2="120" y2="103" stroke="#94A3B8" stroke-width="1.5"/>
+                  <text x="110" y="115" fill="#10B981" font-size="11" font-weight="bold" font-family="sans-serif">K₁ (Long)</text>
+                  <line x1="120" y1="100" x2="120" y2="15" stroke="#475569" stroke-width="1" stroke-dasharray="2,4"/>
+                  
+                  <line x1="210" y1="97" x2="210" y2="103" stroke="#94A3B8" stroke-width="1.5"/>
+                  <text x="200" y="90" fill="#EF4444" font-size="11" font-weight="bold" font-family="sans-serif">K₂ (Short)</text>
+                  <line x1="210" y1="100" x2="210" y2="185" stroke="#475569" stroke-width="1" stroke-dasharray="2,4"/>
+                  
+                  <!-- Gamma Curve -->
+                  <path d="M 50 100 Q 90 100 105 50 Q 120 15 135 50 Q 165 100 195 150 Q 210 185 225 150 Q 240 100 280 100" fill="none" stroke="#60A5FA" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+              </div>
+            </div>
+            
+            <p>Unlike a single call (which always has positive gamma everywhere), the call spread's gamma flips from positive to negative depending on where the spot price is relative to the two strikes.</p>
+          </div>
+        </details>
+      </div>
     </div>
 
     <!-- VEGA -->
     <div class="question-section">
       <h2><span class="section-icon">ν</span> Vega</h2>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-GS-20</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">What is vega? Is "vega" actually a Greek letter? When you are long a call, is your vega positive or negative?</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-GS-20</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">What is vega? Is "vega" actually a Greek letter? When you are long a call, is your vega positive or negative?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Definition</h4>
+            <p>Vega measures the sensitivity of an option's price to a 1% change in implied volatility. Mathematically, it is the first derivative of the option price with respect to volatility: <code>ν = ∂V / ∂σ</code>.</p>
+            
+            <h4>📌 Not a Greek Letter!</h4>
+            <p><strong>Vega is not a real Greek letter!</strong> The actual Greek letter is <em>Nu</em> (ν). However, traders wanted a term that sounded similar to Delta, Gamma, and Theta, so "Vega" became the industry standard. Sometimes you'll see it called Kappa.</p>
+            
+            <h4>📌 Sign</h4>
+            <p>If you are <strong>long</strong> an option (Call or Put), your Vega is always <strong>positive</strong>. Higher volatility increases the probability of the option finishing deep ITM, making it more valuable.</p>
+          </div>
+        </details>
+      </div>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-GS-21</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">Is vega higher for long or short maturity options? Why?</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-GS-21</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">Is vega higher for long or short maturity options? Why?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Higher for Long Maturity</h4>
+            <p>Vega is much larger for <strong>longer maturity</strong> options.</p>
+            <p><em>Why?</em> Because volatility is scaled by the square root of time (<code>σ√T</code>). A 1% increase in volatility matters a lot more when there are 10 years left for the stock to swing wildly, compared to if there is only 1 day left before expiration.</p>
+          </div>
+        </details>
+      </div>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-GS-22</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">At which strike level is vega the most important?</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-GS-22</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">At which strike level is vega the most important?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 At-The-Money (ATM)</h4>
+            <p>Vega is highest exactly <strong>At-The-Money (ATM)</strong>. This is because ATM options consist entirely of extrinsic (time/volatility) value and have the highest uncertainty about whether they will expire ITM or OTM. Therefore, they are the most sensitive to changes in implied volatility.</p>
+          </div>
+        </details>
+      </div>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-GS-23</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">Exercise: I have a positive vega of 500,000 and volatility changes by +3%. What is my P&L?</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-GS-23</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">Exercise: I have a positive vega of 500,000 and volatility changes by +3%. What is my P&L?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Calculation</h4>
+            <p>Vega is traditionally quoted as the P&amp;L change for a <strong>1-point (1%)</strong> move in implied volatility.</p>
+            <ul>
+              <li>Change in P&amp;L = Vega × Change in Volatility (in points)</li>
+              <li>Change in P&amp;L = 500,000 × 3 = <strong>+1,500,000</strong></li>
+            </ul>
+          </div>
+        </details>
+      </div>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-GS-24</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">I am long a call deep ITM. Am I still vega positive?</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-GS-24</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">I am long a call deep ITM. Am I still vega positive?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Vega Approaches Zero</h4>
+            <p>Technically, yes, it is infinitesimally positive. But practically, you are <strong>Vega Neutral</strong> (Vega ≈ 0).</p>
+            <p>A deep ITM option acts almost exactly like the underlying stock itself (Delta ≈ 1). It consists almost entirely of intrinsic value, with virtually zero extrinsic (time/volatility) value. Therefore, changes in implied volatility will not affect its price in any meaningful way.</p>
+          </div>
+        </details>
+      </div>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-GS-25</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">What is the vega of a swap? (Trick question!)</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-GS-25</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">What is the vega of a swap? (Trick question!)</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Zero</h4>
+            <p>A swap is a <strong>linear</strong> instrument (its payoff profile is a straight line, not a curve). It does not have any optionality or convexity embedded in it. Therefore, it is completely immune to changes in implied volatility. The vega of a swap is exactly <strong>0</strong>.</p>
+          </div>
+        </details>
+      </div>
     </div>
 
     <!-- THETA & RHO -->
     <div class="question-section">
       <h2><span class="section-icon">Θ</span> Theta & Rho</h2>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-GS-26</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">What is theta? When you are long a call, is your theta positive or negative? Why does theta increase as you approach maturity?</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-GS-26</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">What is theta? When you are long a call, is your theta positive or negative? Why does theta increase as you approach maturity?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Definition</h4>
+            <p>Theta (Θ) measures the sensitivity of an option's price to the passage of time. It is the first derivative of the option price with respect to time: <code>Θ = ∂V / ∂t</code> (often called "time decay").</p>
+            
+            <h4>📌 Sign & Acceleration</h4>
+            <p>For a long call (or any long option), theta is <strong>negative</strong>. You lose money every day you hold the option, assuming nothing else changes. Theta increases in magnitude (the bleeding speeds up) as you approach maturity because the "extrinsic value" of an ATM option drops off a cliff in the final days. The remaining uncertainty collapses rapidly.</p>
+          </div>
+        </details>
+      </div>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-GS-27</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">I own an ATM straddle. One day passes with no move in the underlying and no change in parameters. Have I made or lost money? Why?</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-GS-27</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">I own an ATM straddle. One day passes with no move in the underlying and no change in parameters. Have I made or lost money? Why?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 You Lost Money</h4>
+            <p>An ATM straddle consists of being <strong>Long</strong> a Call and <strong>Long</strong> a Put. Both legs of the trade are long options, meaning both legs have <strong>negative theta</strong>. You paid premium for both, and since a day passed with zero movement, the time value of both options decayed. Your total position lost money (theta bleed).</p>
+          </div>
+        </details>
+      </div>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-GS-28</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">What is the advantage of being gamma positive? Why prefer it over theta?</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-GS-28</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">What is the advantage of being gamma positive? Why prefer it over theta?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Buying Low, Selling High</h4>
+            <p>When you are gamma positive (and delta hedging), the convexity works in your favor. As the stock rallies, your delta becomes positive, meaning you must <strong>sell</strong> stock to return to delta zero. As the stock crashes, your delta becomes negative, meaning you must <strong>buy</strong> stock to return to delta zero. You are continuously "buying low and selling high" without even predicting the market direction!</p>
+            <p>Traders prefer it because it allows them to harvest volatility and make directional-independent profits, provided the actual realized volatility of the stock outpaces the daily theta decay (which is the fixed cost of holding that positive gamma).</p>
+            
+            <h4>📌 Tail Risk Asymmetry (Why prefer Gamma over Theta?)</h4>
+            <p>Traders strongly prefer to be Gamma positive (paying Theta) rather than Theta positive (receiving Theta) because of <strong>tail risk</strong>. If you are Gamma positive, your downside is strictly capped (you only lose your fixed daily theta bleed), but your upside is theoretically unlimited in the event of a market crash or massive rally. If you are Theta positive (short options), your upside is capped to the premium collected, but your downside is theoretically unlimited—a single "black swan" tail event can wipe out months of collected theta in a single day.</p>
+          </div>
+        </details>
+      </div>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-GS-29</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">What is rho? Why is a call rho positive and a put rho negative? Explain economically.</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-GS-29</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">What is rho? Why is a call rho positive and a put rho negative? Explain economically.</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Definition & Economics</h4>
+            <p>Rho (ρ) measures the sensitivity of the option's price to a 1% change in the risk-free interest rate (<code>ρ = ∂V / ∂r</code>).</p>
+            <ul>
+              <li><strong>Call (Positive Rho):</strong> Buying a call means you have the right to buy the stock later, deferring the payment of the strike price until maturity. If interest rates rise, the cash you kept in the bank (instead of buying the stock today) earns more interest. Therefore, higher rates make calls more valuable.</li>
+              <li><strong>Put (Negative Rho):</strong> Buying a put means you have the right to sell the stock and receive cash later. If interest rates rise, you are losing out on the higher interest you could have earned if you received the cash today. Therefore, higher rates make puts less valuable.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-GS-30</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">I have a call spread. Interest rates increase. What happens to the price of my spread?</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-GS-30</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">I have a call spread. Interest rates increase. What happens to the price of my spread?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 The Price Increases</h4>
+            <p>A Call Spread consists of being <strong>Long K₁</strong> (lower strike) and <strong>Short K₂</strong> (higher strike). Rho is generally higher for lower strike/ITM calls because there is a higher probability that the deferred cash (the strike price) will actually exchange hands. Therefore, the positive Rho of the Long K₁ call outweighs the negative Rho of the Short K₂ call. The net position has a <strong>positive Rho</strong>, meaning an increase in interest rates increases the price of the spread.</p>
+          </div>
+        </details>
+      </div>
     </div>
 
     <!-- SECOND-ORDER & ADVANCED -->
     <div class="question-section">
       <h2><span class="section-icon">📈</span> Second-Order Greeks & Portfolio Greeks</h2>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-GS-31</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">Name and define the second-order Greeks: Vanna, Volga (Vomma), Charm (Color).</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-GS-31</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">Name and define the second-order Greeks: Vanna, Volga (Vomma), Charm (Color).</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Second-Order Greeks</h4>
+            <ul>
+              <li><strong>Vanna (∂Δ / ∂σ or ∂ν / ∂S):</strong> Measures how much Delta changes when Implied Volatility changes (or how Vega changes when Spot changes). It captures the skew risk.</li>
+              <li><strong>Volga / Vomma (∂ν / ∂σ or ∂²V / ∂σ²):</strong> Measures how much Vega changes when Implied Volatility changes. It represents the convexity of the option price with respect to volatility.</li>
+              <li><strong>Charm / Delta Decay (∂Δ / ∂t):</strong> Measures how much Delta changes as time passes (getting closer to expiration).</li>
+              <li><strong>Color (∂Γ / ∂t):</strong> Measures how much Gamma changes as time passes (the "charm" of gamma).</li>
+            </ul>
+          </div>
+        </details>
+      </div>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-GS-32</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">You have a portfolio with given delta, gamma, theta, and vega. How do you make it delta neutral? Gamma neutral? Vega neutral?</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-GS-32</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">You have a portfolio with given delta, gamma, theta, and vega. How do you make it delta neutral? Gamma neutral? Vega neutral?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Neutralization Sequence</h4>
+            <p>You must neutralize from the highest order to the lowest order, because lower-order instruments won't mess up higher-order Greeks:</p>
+            <ol>
+              <li><strong>Vega &amp; Gamma Neutrality:</strong> You <em>must</em> use options to neutralize Vega and Gamma (since the underlying asset has 0 Vega and 0 Gamma). Because options have different Vega/Gamma ratios across strikes and maturities, you generally need to trade at least <strong>two different options</strong> to neutralize both simultaneously.</li>
+              <li><strong>Delta Neutrality:</strong> Once your Vega and Gamma are neutralized using options, your Delta will have changed. You then buy or sell the <strong>underlying asset</strong> (shares/futures) to bring the new net Delta to zero. Since the underlying has no Vega or Gamma, doing this won't ruin your previous work!</li>
+            </ol>
+          </div>
+        </details>
+      </div>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-GS-33</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">My book is delta neutral. When I increase vol by 1%, I become short delta. What is my position in skew?</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-GS-33</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">My book is delta neutral. When I increase vol by 1%, I become short delta. What is my position in skew?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Short Vanna (Short Skew)</h4>
+            <p>The sensitivity of Delta to Volatility is called <strong>Vanna</strong>. If Vol increases and Delta becomes negative (short), then your Vanna is negative (<code>∂Δ / ∂σ &lt; 0</code>).</p>
+            <p>In equity markets, downside Puts have the highest implied volatility (the "Skew"). A long downside Put has positive Vanna. If your Vanna is negative, it means you are likely <strong>short downside Puts</strong>. Therefore, your position in the skew is <strong>Short Skew</strong>.</p>
+          </div>
+        </details>
+      </div>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-GS-34</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">What is the gamma of a 1-year option with 25% vol and 20K theta?</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-GS-34</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">What is the gamma of a 1-year option with 25% vol and 20K theta?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Black-Scholes PDE</h4>
+            <p>Assuming delta neutrality and zero interest rates, the PDE states: <code>Θ + ½ σ² S² Γ = 0</code></p>
+            <p>If we rearrange for the "Cash Gamma" (which is <code>½ S² Γ</code>):</p>
+            <ul>
+              <li>Cash Gamma = <code>-Θ / σ²</code></li>
+              <li>Assuming the option is long, Theta is negative (-20K).</li>
+              <li>Cash Gamma = <code>-(-20,000) / (0.25)²</code></li>
+              <li>Cash Gamma = <code>20,000 / 0.0625 = 320,000</code></li>
+            </ul>
+            <p>The total cash gamma of the position is roughly <strong>320K</strong>.</p>
+          </div>
+        </details>
+      </div>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-GS-35</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">Exercise: You are long 100K vega and 1M gamma. The market moves +3% and vol increases by 1 point. What is your P&L?</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-GS-35</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">Exercise: You are long 100K vega and 1M gamma. The market moves +3% and vol increases by 1 point. What is your P&L?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Independent P&amp;L Contributions</h4>
+            <p>Assuming a delta-neutral book, your P&amp;L comes from the Volatility move (Vega) and the Spot move (Gamma):</p>
+            <ul>
+              <li><strong>Vega P&amp;L:</strong> <code>Vega × dVol = 100K × 1 = +100K</code></li>
+              <li><strong>Gamma P&amp;L:</strong> <code>½ × Gamma × (dSpot)² = 0.5 × 1M × (3)² = 4.5M</code></li>
+              <li><strong>Total P&amp;L:</strong> <code>100K + 4.5M = +4.6 Million</code></li>
+            </ul>
+          </div>
+        </details>
+      </div>
     </div>
   </div>
 
