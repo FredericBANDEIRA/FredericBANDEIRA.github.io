@@ -25,98 +25,637 @@
     <div class="page-stats">
       <div class="stat"><span class="stat-num">30</span> questions</div>
       <div class="stat-divider"></div>
-      <div class="stat"><span class="stat-num">0</span> answered</div>
+      <div class="stat"><span class="stat-num">23</span> answered</div>
       <div class="stat-divider"></div>
-      <div class="stat"><span class="stat-num">30</span> remaining</div>
+      <div class="stat"><span class="stat-num">7</span> remaining</div>
     </div>
 
     <!-- BASICS -->
     <div class="question-section">
       <h2><span class="section-icon">🧱</span> Fundamentals</h2>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-SP-01</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">What is a structured product? What are its basic components?</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-SP-01</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">What is a structured product? What are its basic components?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Definition</h4>
+            <p>A structured product is a pre-packaged investment strategy wrapped into a single security (usually an EMTN - Euro Medium Term Note). It is designed to facilitate highly customized risk-return objectives that cannot be met by standard financial instruments.</p>
+            
+            <h4>📌 Basic Components</h4>
+            <ul>
+              <li><strong>Zero-Coupon Bond (Fixed Income):</strong> The bond component provides the capital protection and guarantees the return of principal at maturity.</li>
+              <li><strong>Derivative / Option Component:</strong> The option component provides the performance linked to the underlying asset (equity index, FX, commodity, etc.).</li>
+            </ul>
+          </div>
+        </details>
+      </div>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-SP-02</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">How do you construct a capital-guaranteed product? Walk me through the pricing: if rates are 5% and maturity is 5 years, how much can you spend on the option component?</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-SP-02</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">How do you construct a capital-guaranteed product? Walk me through the pricing: if rates are 5% and maturity is 5 years, how much can you spend on the option component?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Construction & Pricing</h4>
+            <p>You construct it by buying a Zero-Coupon Bond to guarantee the principal (100%), and using the remaining discount (the money left over) to buy Call options for upside participation.</p>
+            <p>If interest rates are 5% and maturity is 5 years, the present value (PV) of the bond is: <br>
+            <code>PV = 100 / (1.05)⁵ ≈ 78.35%</code></p>
+            <p>Since the client pays you 100% upfront, and you only need to lock away 78.35% to guarantee their capital in 5 years, you have <strong>21.65%</strong> left over to spend on the option component (and the bank's margin).</p>
+            <p><em>(An easy approximation for interviews: 5 years × 5% = ~25% budget).</em></p>
+          </div>
+        </details>
+      </div>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-SP-03</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">A capital-guaranteed product offers 50% participation on an index. How can you improve the participation rate for the client?</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-SP-03</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">A capital-guaranteed product offers 50% participation on an index. How can you improve the participation rate for the client?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 4 Ways to Improve Participation</h4>
+            <p>To increase participation, you need to either increase your option budget, or make the option cheaper:</p>
+            <ol>
+              <li><strong>Introduce a Cap (Sell an Option):</strong> Sell an Out-of-the-Money (OTM) Call option. This generates premium, which you can use to buy <em>more</em> ATM Calls, increasing participation (converting the option leg into a Call Spread).</li>
+              <li><strong>Increase Maturity:</strong> A longer maturity means a lower present value for the zero-coupon bond, freeing up more upfront cash (budget) to buy options.</li>
+              <li><strong>Select a Higher Dividend / Lower Volatility Underlying:</strong> Higher expected dividends and lower implied volatility both make Call options cheaper, allowing your fixed budget to buy more participation.</li>
+              <li><strong>Reduce Capital Protection:</strong> Guarantee 90% instead of 100%. The bond costs much less, giving you a massive option budget.</li>
+            </ol>
+          </div>
+        </details>
+      </div>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-SP-04</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">Is this type of capital-guaranteed product more attractive in EUR or in JPY? Why?</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-SP-04</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">Is this type of capital-guaranteed product more attractive in EUR or in JPY? Why?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Much more attractive in EUR</h4>
+            <p>It is vastly more attractive in currencies with <strong>high interest rates</strong> (like EUR historically, or USD).</p>
+            <p>High interest rates mean the zero-coupon bond is heavily discounted, meaning you pay much less upfront to guarantee the capital. This leaves a massive cash budget to buy options and offer high upside participation to the client.</p>
+            <p>In JPY (which has had zero or negative interest rates for decades), a zero-coupon bond costs essentially 100%. Therefore, there is zero budget left to buy options, making capital-guaranteed products mathematically impossible to structure with any meaningful participation.</p>
+          </div>
+        </details>
+      </div>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-SP-05</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">What is the difference between a structured product and a derivative product?</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-SP-05</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">What is the difference between a structured product and a derivative product?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Funding & Usage</h4>
+            <ul>
+              <li><strong>Structured Product:</strong> Fully funded. The client pays 100% of the nominal upfront. It acts as an investment vehicle (a security, like a bond) wrapped with specific payout rules.</li>
+              <li><strong>Derivative Product:</strong> Unfunded or partially funded (via margin). Instruments like futures, swaps, or standalone options are pure risk-transfer mechanisms, not investment wrappers.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-SP-06</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">Where does the margin come from on a structured product?</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-SP-06</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">Where does the margin come from on a structured product?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 The "Hidden" Spread</h4>
+            <p>The margin comes from the difference between the <strong>issue price</strong> (what the client pays) and the <strong>manufacturing cost</strong> (the wholesale price of the components).</p>
+            <p>The client pays 100% upfront. The structuring desk goes to the interbank market and buys the Zero-Coupon Bond for 78% and the required options for 20%. The total cost is 98%. The remaining <strong>2%</strong> is kept as the bank's upfront margin (which is split between the structuring desk and the sales team as commission).</p>
+          </div>
+        </details>
+      </div>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-SP-07</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">What are the two main families of autocalls?</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-SP-07</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">What are the two main families of autocalls?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Athena & Phoenix</h4>
+            <ul>
+              <li><strong>Athena (Pure Autocall / Growth):</strong> No periodic coupons are paid. If the product autocalls, it pays a large accumulated snowball coupon at that time. If it doesn't autocall, you get nothing until maturity.</li>
+              <li><strong>Phoenix (Yield Enhancement / Income):</strong> Pays regular periodic coupons (e.g., quarterly) unconditionally or conditionally, independent of the autocall mechanism. It is designed for income generation.</li>
+            </ul>
+
+            <div class="tip-box" style="margin-top: 15px; padding: 12px; background: rgba(59, 130, 246, 0.1); border-left: 4px solid #3B82F6; border-radius: 4px;">
+              <strong>🏛️ Mythological Memory Trick:</strong><br>
+              <strong>Athena:</strong> Sprang fully grown from the head of Zeus. The product pays nothing while waiting, but "springs to life" fully formed (paying the massive snowball coupon all at once) if the autocall condition is met.<br>
+              <strong>Phoenix:</strong> Dies in flames but is reborn from its ashes. If the market crashes, you miss your coupon (the bird dies). But if the market recovers, you get the current coupon <em>plus all previously missed coupons</em> (the bird rises from its ashes with its "memory" feature).
+            </div>
+          </div>
+        </details>
+      </div>
     </div>
 
     <!-- PRODUCT TYPES -->
     <div class="question-section">
       <h2><span class="section-icon">📦</span> Product Types & Construction</h2>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-SP-08</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">What is a reverse convertible? How do you decompose it? Why do you use a short put? Draw the payoff.</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-SP-08</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">What is a reverse convertible? How do you decompose it? Why do you use a short put? Draw the payoff.</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Decomposition & Purpose</h4>
+            <p>A reverse convertible is a yield-enhancement product. It pays a fixed, high coupon regardless of market conditions, but places the principal at risk if the underlying drops below a certain strike level (resulting in physical delivery of the shares or a cash equivalent loss).</p>
+            <p><strong>Decomposition:</strong> <code>Zero-Coupon Bond + Short Put Option</code></p>
+            <p><strong>Why a short put?</strong> You sell a Put option to the bank to generate a large upfront premium. This premium is what allows the issuer to pay you an artificially high, fixed coupon. In exchange for the premium, you accept the downside risk of the market.</p>
+            
+            <div class="chart-grid">
+              <div class="chart-card">
+                <div class="chart-title" style="color: #60A5FA;">📈 Reverse Convertible Payoff</div>
+                <svg viewBox="0 0 300 200" class="chart-svg" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Axes -->
+                  <line x1="50" y1="100" x2="280" y2="100" stroke="#64748B" stroke-width="1.5"/>
+                  <line x1="50" y1="185" x2="50" y2="15" stroke="#64748B" stroke-width="1.5"/>
+                  <text x="268" y="113" fill="#94A3B8" font-size="12" font-family="sans-serif">Spot</text>
+                  <text x="10" y="20" fill="#94A3B8" font-size="12" font-family="sans-serif">Payoff</text>
+                  <text x="35" y="100" fill="#94A3B8" font-size="12" font-family="sans-serif">0</text>
+                  
+                  <!-- Strike -->
+                  <line x1="165" y1="97" x2="165" y2="103" stroke="#94A3B8" stroke-width="1.5"/>
+                  <text x="155" y="115" fill="#EF4444" font-size="11" font-weight="bold" font-family="sans-serif">Strike</text>
+                  <line x1="165" y1="100" x2="165" y2="50" stroke="#475569" stroke-width="1" stroke-dasharray="2,4"/>
+                  
+                  <!-- Payoff Curve -->
+                  <path d="M 50 165 L 165 50 L 280 50" fill="none" stroke="#60A5FA" stroke-width="3"/>
+                  <text x="230" y="45" fill="#60A5FA" font-size="11" font-weight="bold" font-family="sans-serif">Max Return = Coupon</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </details>
+      </div>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-SP-09</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">What is a Phoenix? How do you structure it? (Hint: short Put Down-and-In + digital coupons.) Why does the "phoenix rise from its ashes"?</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-SP-09</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">What is a Phoenix? How do you structure it? (Hint: short Put Down-and-In + digital coupons.) Why does the "phoenix rise from its ashes"?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Decomposition & Memory Effect</h4>
+            <p>A Phoenix is an autocallable product that focuses on <strong>Yield Enhancement</strong>. It pays conditional periodic coupons and puts capital at risk only if a severe downside barrier is breached.</p>
+            <p><strong>Decomposition:</strong></p>
+            <ul>
+              <li><code>Zero-Coupon Bond</code> (Provides the capital protection)</li>
+              <li><code>+ Short Put Down-and-In (KI)</code> (Generates premium, puts capital at risk if barrier is breached)</li>
+              <li><code>+ Long a strip of Digital Options</code> (To pay the conditional periodic coupons)</li>
+              <li><code>+ Long Autocall Options</code> (To trigger early redemption if the spot is above the autocall barrier)</li>
+            </ul>
+            <p><strong>Rising from its ashes:</strong> It features a "Memory Effect." If the market crashes below the coupon barrier, you miss your coupon (the bird dies). If the market later recovers above the barrier, the product pays the current coupon <strong>plus all previously missed coupons</strong> (the bird rises from its ashes).</p>
+            
+            <svg viewBox="0 0 320 170" style="width:100%; height:auto; background:linear-gradient(180deg,#fef2f2 0%,#f8fafc 100%); border-radius:12px; margin-top:15px; padding:10px;" xmlns="http://www.w3.org/2000/svg">
+                <line x1="30" y1="140" x2="300" y2="140" stroke="#94a3b8" stroke-width="1.5"/>
+                <line x1="30" y1="15" x2="30" y2="140" stroke="#94a3b8" stroke-width="1.5"/>
+                
+                <line x1="30" y1="90" x2="300" y2="90" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4,4"/>
+                <text x="5" y="93" font-size="8" fill="#64748b">100%</text>
+                
+                <line x1="120" y1="140" x2="120" y2="50" stroke="#ef4444" stroke-width="1" stroke-dasharray="2,2"/>
+                <text x="110" y="152" font-size="8" fill="#ef4444">KI (60%)</text>
+                <line x1="200" y1="140" x2="200" y2="50" stroke="#3b82f6" stroke-width="1" stroke-dasharray="2,2"/>
+                <text x="180" y="152" font-size="8" fill="#3b82f6">Autocall (100%)</text>
+                
+                <line x1="30" y1="132.5" x2="120" y2="110" stroke="#ef4444" stroke-width="3"/>
+                <line x1="120" y1="90" x2="200" y2="90" stroke="#f59e0b" stroke-width="3"/>
+                <circle cx="120" cy="90" r="3" fill="#f59e0b"/>
+                <circle cx="120" cy="110" r="3" fill="white" stroke="#ef4444" stroke-width="2"/>
+                
+                <line x1="200" y1="90" x2="300" y2="90" stroke="#10b981" stroke-width="3"/>
+                <circle cx="200" cy="90" r="3" fill="#10b981"/>
+                
+                <text x="40" y="115" font-size="8" fill="#ef4444">Capital Loss</text>
+                <text x="145" y="85" font-size="8" fill="#f59e0b">Capital Protected</text>
+                <text x="220" y="85" font-size="8" fill="#10b981">Autocalled (100%)</text>
+                
+                <rect x="50" y="20" width="220" height="20" fill="#f1f5f9" rx="4"/>
+                <text x="160" y="33" font-size="8" fill="#334155" text-anchor="middle">+ Periodic Coupons (if Spot > Coupon Barrier)</text>
+            </svg>
+          </div>
+        </details>
+      </div>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-SP-10</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">What is an Athena (autocallable)? Draw the payoff. What are all the possible outcomes?</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-SP-10</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">What is an Athena (autocallable)? Draw the payoff. What are all the possible outcomes?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Decomposition & Outcomes</h4>
+            <p>An Athena is a pure "growth" autocallable. It pays <strong>no periodic coupons</strong>. Instead, it pays a massive accumulated "snowball" coupon if, and only if, the product autocalls or matures above its barrier.</p>
+            <p><strong>Decomposition:</strong> <code>ZCB + Short Put Down-and-In + Long Autocall Options (Snowball)</code></p>
+            
+            <h4>📌 The 3 Possible Outcomes</h4>
+            <ol>
+              <li><strong>Autocall (Bullish/Flat):</strong> On an observation date, the Spot is above the Autocall Barrier. The product immediately matures and pays back 100% of Capital + the Snowball Coupon (e.g. 10% × Years elapsed).</li>
+              <li><strong>Safe Haven (Bearish but above KI):</strong> The product never autocalls. At final maturity, the Spot is below the Autocall Barrier, but above the Knock-In barrier (e.g. 60%). The product pays back exactly 100% of Capital, with 0% coupon. (You earned 0%).</li>
+              <li><strong>Capital Loss (Severe Bearish):</strong> At final maturity, the Spot is below the Knock-In barrier. Capital protection vanishes. You suffer 1-for-1 losses with the underlying index (e.g., if the index is down 45%, you lose 45% of your capital).</li>
+            </ol>
+            
+            <svg viewBox="0 0 320 170" style="width:100%; height:auto; background:linear-gradient(180deg,#eff6ff 0%,#f8fafc 100%); border-radius:12px; margin-top:15px; padding:10px;" xmlns="http://www.w3.org/2000/svg">
+                <line x1="30" y1="140" x2="300" y2="140" stroke="#94a3b8" stroke-width="1.5"/>
+                <line x1="30" y1="15" x2="30" y2="140" stroke="#94a3b8" stroke-width="1.5"/>
+                
+                <line x1="30" y1="90" x2="300" y2="90" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4,4"/>
+                <text x="5" y="93" font-size="8" fill="#64748b">100%</text>
+                
+                <line x1="120" y1="140" x2="120" y2="50" stroke="#ef4444" stroke-width="1" stroke-dasharray="2,2"/>
+                <text x="110" y="152" font-size="8" fill="#ef4444">KI (60%)</text>
+                <line x1="200" y1="140" x2="200" y2="50" stroke="#3b82f6" stroke-width="1" stroke-dasharray="2,2"/>
+                <text x="180" y="152" font-size="8" fill="#3b82f6">Autocall (100%)</text>
+                
+                <line x1="30" y1="132.5" x2="120" y2="110" stroke="#ef4444" stroke-width="3"/>
+                <line x1="120" y1="90" x2="200" y2="90" stroke="#f59e0b" stroke-width="3"/>
+                <circle cx="120" cy="90" r="3" fill="#f59e0b"/>
+                <circle cx="120" cy="110" r="3" fill="white" stroke="#ef4444" stroke-width="2"/>
+                
+                <line x1="200" y1="65" x2="300" y2="65" stroke="#10b981" stroke-width="3"/>
+                <circle cx="200" cy="65" r="3" fill="#10b981"/>
+                <circle cx="200" cy="90" r="3" fill="white" stroke="#f59e0b" stroke-width="2"/>
+                
+                <text x="40" y="115" font-size="8" fill="#ef4444">Capital Loss</text>
+                <text x="135" y="85" font-size="8" fill="#f59e0b">Safe Haven</text>
+                <text x="220" y="60" font-size="8" fill="#10b981">Autocall + Snowball</text>
+            </svg>
+          </div>
+        </details>
+      </div>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-SP-11</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">What is an Airbag? How is it structured? Are you vega positive or negative on this product?</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-SP-11</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">What is an Airbag? How is it structured? Are you vega positive or negative on this product?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 The Downside Buffer</h4>
+            <p>An Airbag certificate provides upside participation in an index, while offering a "buffer" against downside risk (e.g., the first 20% of losses are absorbed by the airbag). However, if the index falls <em>beyond</em> the buffer, the investor starts taking losses.</p>
+            <p><strong>Structure:</strong> <code>Long Underlying + Long Put Spread (Long ATM Put + Short OTM Put)</code></p>
+            <ul>
+              <li>The <strong>Long ATM Put</strong> protects your capital completely.</li>
+              <li>The <strong>Short OTM Put</strong> (e.g. at 80%) removes the protection below that barrier, cheapening the structure.</li>
+            </ul>
+            <p><strong>Vega Exposure:</strong> You are strictly <strong>Vega Positive</strong>. Because you are Long an ATM Put (which has very high Vega) and Short an OTM Put (which has much lower Vega), your net position is heavily Long Vega. You want volatility to increase.</p>
+            
+            <svg viewBox="0 0 320 170" style="width:100%; height:auto; background:linear-gradient(180deg,#f5f3ff 0%,#f8fafc 100%); border-radius:12px; margin-top:15px; padding:10px;" xmlns="http://www.w3.org/2000/svg">
+                <line x1="30" y1="140" x2="300" y2="140" stroke="#94a3b8" stroke-width="1.5"/>
+                <line x1="30" y1="15" x2="30" y2="140" stroke="#94a3b8" stroke-width="1.5"/>
+                
+                <line x1="30" y1="90" x2="300" y2="90" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4,4"/>
+                <text x="5" y="93" font-size="8" fill="#64748b">100%</text>
+                
+                <line x1="160" y1="140" x2="160" y2="50" stroke="#8b5cf6" stroke-width="1" stroke-dasharray="2,2"/>
+                <text x="145" y="152" font-size="8" fill="#8b5cf6">Buffer (80%)</text>
+                <line x1="200" y1="140" x2="200" y2="50" stroke="#3b82f6" stroke-width="1" stroke-dasharray="2,2"/>
+                <text x="190" y="152" font-size="8" fill="#3b82f6">Initial (100%)</text>
+                
+                <line x1="30" y1="130.6" x2="160" y2="90" stroke="#ef4444" stroke-width="3"/>
+                <line x1="160" y1="90" x2="200" y2="90" stroke="#8b5cf6" stroke-width="3"/>
+                <line x1="200" y1="90" x2="300" y2="65" stroke="#10b981" stroke-width="3"/>
+                
+                <text x="70" y="110" font-size="8" fill="#ef4444">Geared Loss</text>
+                <text x="165" y="85" font-size="8" fill="#8b5cf6">Airbag</text>
+                <text x="240" y="70" font-size="8" fill="#10b981">Upside</text>
+            </svg>
+          </div>
+        </details>
+      </div>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-SP-12</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">What is a CLN (Credit Linked Note)? How do you structure it? What are the main risks?</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-SP-12</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">What is a CLN (Credit Linked Note)? How do you structure it? What are the main risks?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Credit Exposure</h4>
+            <p>A Credit Linked Note (CLN) is a structured product where the performance is linked to the <strong>credit risk</strong> (risk of default) of a reference entity (e.g., a company like Air France, or a sovereign State), rather than an equity index.</p>
+            <p><strong>Structure:</strong> <code>Zero-Coupon Bond + Short CDS (Credit Default Swap)</code></p>
+            <p>The investor acts as an insurer. They sell a CDS to the bank, collecting premium which boosts their yield. In exchange, if a "Credit Event" (bankruptcy, restructuring, default) occurs on the reference entity, the product terminates and the investor loses capital (they only recover the default Recovery Rate, e.g., 40%).</p>
+            <p><strong>Main Risks:</strong> Credit Risk of the reference entity, Credit Risk of the issuer of the note, and Interest Rate Risk (since it behaves largely like a bond).</p>
+          </div>
+        </details>
+      </div>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-SP-13</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">What is a Twin-Win and how is it structured?</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-SP-13</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">What is a Twin-Win and how is it structured?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Profiting from Both Directions</h4>
+            <p>A Twin-Win allows the investor to gain absolute returns whether the market goes up OR down. If the market goes up 20%, you gain 20%. If the market drops 20%, you <em>still gain 20%</em> (the negative performance is transformed into a positive payoff). This "magic" only holds as long as the spot does not breach a downside barrier.</p>
+            <p><strong>Structure:</strong> <code>Zero-Coupon Bond + Long Call (for upside) + Long Put Down-and-Out (for downside)</code></p>
+            <p>The long Put Down-and-Out is what converts the falling market into positive returns. But because it is "Out", if the market crashes and hits the barrier, the Put instantly deactivates and becomes worthless, exposing you to the pure capital loss.</p>
+            
+            <svg viewBox="0 0 320 170" style="width:100%; height:auto; background:linear-gradient(180deg,#ecfdf5 0%,#f8fafc 100%); border-radius:12px; margin-top:15px; padding:10px;" xmlns="http://www.w3.org/2000/svg">
+                <defs><linearGradient id="tw" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#10b981" stop-opacity="0.2"/><stop offset="100%" stop-color="#10b981" stop-opacity="0.02"/></linearGradient></defs>
+                <line x1="30" y1="140" x2="300" y2="140" stroke="#94a3b8" stroke-width="1.5"/>
+                <line x1="30" y1="15" x2="30" y2="140" stroke="#94a3b8" stroke-width="1.5"/>
+                <polygon points="85,140 85,50 165,95 300,20 300,140" fill="url(#tw)"/>
+                <line x1="30" y1="95" x2="300" y2="95" stroke="#10b981" stroke-width="1" stroke-dasharray="5,3"/>
+                <text x="260" y="90" font-size="8" fill="#10b981" font-weight="600">100%</text>
+                <rect x="83" y="20" width="2" height="120" fill="#ef4444" opacity="0.3" rx="1"/>
+                <text x="55" y="135" font-size="8" fill="#ef4444" font-weight="600">Barrier</text>
+                <rect x="163" y="20" width="2" height="120" fill="#3b82f6" opacity="0.2" rx="1"/>
+                <text x="170" y="135" font-size="8" fill="#3b82f6">Initial</text>
+                <polyline points="30,140 85,140 85,50 165,95 300,20" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="165" cy="95" r="5" fill="white" stroke="#10b981" stroke-width="2"/>
+                <circle cx="85" cy="50" r="4" fill="white" stroke="#ef4444" stroke-width="2"/>
+                <text x="90" y="45" font-size="7" fill="#059669">Gain ↑</text>
+                <text x="240" y="18" font-size="7" fill="#059669">Gain ↑</text>
+                <text x="35" y="125" font-size="7" fill="#ef4444">Loss ↓</text>
+                <text x="100" y="75" font-size="7" fill="#64748b" transform="rotate(-40,100,75)">Drop = Gain!</text>
+                <text x="220" y="55" font-size="7" fill="#64748b" transform="rotate(-25,220,55)">Rise = Gain</text>
+                <text x="160" y="160" font-size="9" fill="#64748b" text-anchor="middle">Underlying Performance →</text>
+            </svg>
+          </div>
+        </details>
+      </div>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-SP-14</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">What is a Put Down-and-In? How does the delta behave near the barrier? How can you hedge a short Put KI?</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-SP-14</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">What is a Put Down-and-In? How does the delta behave near the barrier? How can you hedge a short Put KI?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Barrier Mechanics & Hedging</h4>
+            <p>A Put Down-and-In (Knock-In Put) is an exotic option that pays nothing unless the underlying asset drops and hits a specific barrier, at which point it activates ("knocks in") and becomes a standard Vanilla Put.</p>
+            <p><strong>Delta Behavior:</strong> You correctly noted the discontinuity. As the spot approaches the barrier from above, the Delta of the Knock-In Put explodes (massive Gamma). The moment the barrier is touched, the option activates, instantly becoming a deep In-The-Money Vanilla Put, meaning its Delta jumps instantly to near -100%.</p>
+            <p><strong>Hedging a Short KI Put:</strong> If the bank is short the KI Put (which they are when selling Phoenix/Athena), their delta drops off a cliff as the spot approaches the barrier. To remain delta-neutral, the trader must <strong>aggressively sell the underlying asset</strong> as it falls towards the barrier. This massive selling often pushes the asset down into the barrier, creating what is known in trading as the "Pinning" or "Magnet" effect.</p>
+          </div>
+        </details>
+      </div>
     </div>
 
     <!-- COUPON OPTIMIZATION -->
     <div class="question-section">
       <h2><span class="section-icon">💡</span> Coupon Optimization & Greeks</h2>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-SP-15</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">You have a Phoenix with a 3% annual coupon. Your client wants a higher coupon. What do you change?</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-SP-15</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">You have a Phoenix with a 3% annual coupon. Your client wants a higher coupon. What do you change?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Coupon Optimization Strategies</h4>
+            <p>To pay a higher coupon, the structuring desk needs to collect more premium from the embedded options. You must convince the client to take on more risk in exchange for yield:</p>
+            <ol>
+              <li><strong>Raise the Capital Knock-In Barrier (e.g., from 60% to 80%):</strong> Selling a Put with a closer barrier means a much higher probability of taking a loss, so the premium collected is vastly higher.</li>
+              <li><strong>Lower the Autocall Barrier (e.g., from 100% to 90%):</strong> Makes it easier for the product to be called away early. The bank prices in a shorter lifespan and less coupon payouts, increasing the annual coupon rate.</li>
+              <li><strong>Pick a Riskier Underlying (Higher Volatility):</strong> Higher implied volatility makes the Put D&I you are selling much more expensive, generating more premium to fund the coupon.</li>
+              <li><strong>Pick an Underlying with High Dividends:</strong> Dividends lower the forward price of the asset, making the Put you sell more expensive. Also, structured products usually do not pass dividends to the client—the bank keeps them to fund the structure.</li>
+              <li><strong>Increase Maturity:</strong> More time = higher option premium collected.</li>
+            </ol>
+          </div>
+        </details>
+      </div>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-SP-16</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">What parameters do you modify to make the Put D&I more expensive (to collect more premium)?</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-SP-16</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">What parameters do you modify to make the Put D&I more expensive (to collect more premium)?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Maximizing the Put Premium</h4>
+            <p>To make the Put Down-and-In more expensive (meaning the bank pays the client more premium, funding a higher coupon), you must increase the probability that it knocks in and creates a loss:</p>
+            <ul>
+              <li><strong>Raise the Barrier:</strong> Moving it from 50% to 80% makes it much more likely to be hit. A higher barrier is riskier, and therefore more expensive.</li>
+              <li><strong>Increase Implied Volatility:</strong> Higher volatility means a higher chance of large downswings hitting the barrier.</li>
+              <li><strong>Increase Maturity:</strong> More time for the market to crash.</li>
+              <li><strong>Increase Dividends:</strong> High expected dividends lower the forward price of the underlying, bringing it closer to the downside barrier.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-SP-17</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">How do you adjust a product for a risk-averse vs risk-seeking client?</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-SP-17</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">How do you adjust a product for a risk-averse vs risk-seeking client?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Client Profiling</h4>
+            <p><strong>Risk-Averse Client:</strong></p>
+            <ul>
+              <li>100% Capital Guaranteed (using a ZCB).</li>
+              <li>Broad, diversified underlyings (e.g., S&P 500, EuroStoxx 50).</li>
+              <li>Shorter maturities (less time exposure).</li>
+              <li>Participation (Growth) rather than Yield Enhancement.</li>
+            </ul>
+            <p><strong>Risk-Seeking Client:</strong></p>
+            <ul>
+              <li>Yield Enhancement (Phoenix, Reverse Convertibles) with Capital at Risk.</li>
+              <li>Worst-Of baskets (e.g., Worst-Of 3 volatile single stocks) to maximize correlation and volatility premium.</li>
+              <li>High capital Knock-In barriers (e.g., 80%) to squeeze out massive double-digit coupons.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-SP-18</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">Which Greeks most influence the price of an autocall?</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-SP-18</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">Which Greeks most influence the price of an autocall?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 The Core Sensitivities</h4>
+            <p>While <i>Δ</i> (Spot) always matters, the two structural drivers of an autocall's price are <strong>Vega (<i>ν</i>)</strong> and <strong>Rho (<i>ρ</i>)</strong>.</p>
+            <ul>
+              <li><strong>Vega (Volatility):</strong> Volatility dictates whether we hit the autocall barrier or the downside barrier. An autocall is essentially a massive strip of options (Put D&I, Digital Calls). Vega determines their price.</li>
+              <li><strong>Rho (Interest Rates):</strong> Rates determine the discount factor of the Zero-Coupon Bond. Higher rates = cheaper bond = more budget to buy options = much better product terms.</li>
+              <li><strong>Dividends (<i>q</i>):</strong> Extremely important, as the bank uses the forfeited implied dividends to fund the structure.</li>
+              <li><strong>Correlation:</strong> If it's a "Worst-Of" product, correlation is arguably the single most important Greek.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-SP-19</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">When you are long an autocall, how is your vega? Are you long or short dividends?</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-SP-19</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">When you are long an autocall, how is your vega? Are you long or short dividends?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Client vs Bank Exposure</h4>
+            <p><strong>You are SHORT Vega (<i>ν</i> &lt; 0)</strong></p>
+            <p>When you buy an autocall (Phoenix/Athena), you are inherently selling options to the bank. You sell a Put Down-and-In (taking the downside risk), and you sell Call options above the autocall barrier (capping your upside). Because you are a net seller of options, you are Short Vega. You want volatility to decrease (so you don't hit the downside barrier, and the product autocalls smoothly).</p>
+            <p><strong>You are SHORT Dividends</strong></p>
+            <p>When you hold a structured product on an index, you do not receive the dividends that the index pays. You forfeit them to the bank. The bank uses those expected future dividends to construct the product. Therefore, you are short dividends (if companies suddenly cut their dividends, the product performs worse than holding the stock).</p>
+          </div>
+        </details>
+      </div>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-SP-20</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">If market volatility was higher at the time of product emission, would the coupon be higher or lower? Why?</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-SP-20</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">If market volatility was higher at the time of product emission, would the coupon be higher or lower? Why?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Higher Volatility = Higher Coupon</h4>
+            <p>If implied volatility (<i>σ</i>) is higher at emission, the coupon will be <strong>higher</strong>.</p>
+            <p><strong>Why?</strong> An autocallable product (like a Phoenix) involves the investor <strong>selling</strong> options to the bank (e.g., selling a Put Down-and-In). When market volatility is high, the premiums on all options increase. Because the investor is a net seller of options, they collect more premium upfront from the bank. The bank distributes this extra premium to the investor in the form of a higher annual coupon.</p>
+            <div class="formula-box">
+              Vol (<i>σ</i>) ↑ &nbsp;&nbsp;→&nbsp;&nbsp; Option Premium ↑ &nbsp;&nbsp;→&nbsp;&nbsp; Budget to pay Coupon ↑
+            </div>
+          </div>
+        </details>
+      </div>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-SP-21</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">How do the Greeks evolve for an exotic option when the spot approaches an activating or deactivating barrier?</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-SP-21</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">How do the Greeks evolve for an exotic option when the spot approaches an activating or deactivating barrier?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 The "Barrier Effect" on Greeks</h4>
+            <p>When the spot (<i>S</i>) approaches a Knock-In (KI) or Knock-Out (KO) barrier, the option's value undergoes a drastic discontinuity, causing the Greeks to explode:</p>
+            <ul>
+              <li><strong>Delta (<i>Δ</i>):</strong> Discontinuous (acts like a Dirac delta function). It jumps instantly from near 0 to near 1 (or -1) the moment the barrier is crossed.</li>
+              <li><strong>Gamma (<i>Γ</i>):</strong> Explodes to +∞ or -∞ just before the barrier, then violently flips sign once the barrier is breached.</li>
+              <li><strong>Vega (<i>ν</i>):</strong> Explodes. Near the barrier, a tiny change in volatility massively changes the probability of hitting the barrier.</li>
+              <li><strong>Theta (<i>θ</i>):</strong> Explodes. Time decay is extreme near the barrier because every passing day heavily impacts whether the option will survive or die.</li>
+            </ul>
+            <div class="pro-tip-box">
+              <strong>💡 Interview Trap & Follow-Up:</strong><br>
+              Mention <strong>Pinning Risk</strong>! Because <i>Γ</i> and <i>Δ</i> explode, banks hedging a short KI Put must aggressively sell the underlying as it approaches the barrier, often artificially pushing the spot directly into the barrier.
+            </div>
+          </div>
+        </details>
+      </div>
     </div>
 
     <!-- WORST-OF & CORRELATION -->
     <div class="question-section">
       <h2><span class="section-icon">🔗</span> Worst-Of, Best-Of & Correlation</h2>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-SP-22</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">What is a worst-of structure? If I have a Barrier Reverse Convertible with one underlying vs a BRC with a basket of 3 underlyings (worst-of), which is more expensive?</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-SP-22</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">What is a worst-of structure? If I have a Barrier Reverse Convertible with one underlying vs a BRC with a basket of 3 underlyings (worst-of), which is more expensive?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 The Worst-Of Mechanism</h4>
+            <p>A "Worst-Of" structure links the product's payoff entirely to the <strong>worst performing</strong> asset in a basket (e.g., Total, AXA, Sanofi). If Total is +10%, AXA is +5%, and Sanofi is -45%, the entire product's return is calculated based on Sanofi (-45%).</p>
+            <p><strong>Pricing comparison:</strong> The BRC with a Worst-Of 3 basket is <strong>much more expensive</strong> (meaning it pays a much higher coupon to the investor) than a single-underlying BRC.</p>
+            <p><strong>Why?</strong> The probability of <em>at least one</em> out of three stocks crashing and hitting the downside barrier is significantly higher than the probability of one specific stock hitting it. The investor takes on much more risk, so they demand a higher yield.</p>
+          </div>
+        </details>
+      </div>
 
-      <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-SP-23</span></div><span class="q-flag unanswered">Unanswered</span></div>
-        <div class="q-text">On a worst-of product, are you long or short correlation? Why?</div></div>
+      <div class="question-card">
+        <div class="q-header">
+          <div class="q-header-left"><span class="q-number">Q-SP-23</span></div>
+          <span class="q-flag answered">Answered</span>
+        </div>
+        <div class="q-text">On a worst-of product, are you long or short correlation? Why?</div>
+        
+        <details class="answer-details">
+          <summary class="answer-summary">💡 View Answer & Interview Tips</summary>
+          <div class="answer-content">
+            <h4>📌 Correlation Risk</h4>
+            <p>As the investor in a Worst-Of product, you are <strong>LONG correlation</strong>.</p>
+            <p><strong>Why?</strong> You want all the assets to move together (high correlation ≈ 1). If they move together, they act like a single asset. However, if correlation is low (they move independently), it is highly likely that while some stocks go up, <em>at least one</em> stock will crash and hit your downside barrier, ruining your capital protection.</p>
+            <div class="formula-box">
+              Correlation ↓ &nbsp;&nbsp;→&nbsp;&nbsp; Probability of a single crash ↑ &nbsp;&nbsp;→&nbsp;&nbsp; Put value ↑
+            </div>
+            <div class="pro-tip-box">
+              <strong>💡 Interview Trap:</strong><br>
+              It is extremely counter-intuitive for beginners. Most people assume "diversification is good, so low correlation is good." In a Worst-Of, diversification is terrible because you only get the downside of the worst asset, never the upside of the best ones!
+            </div>
+          </div>
+        </details>
+      </div>
 
       <div class="question-card"><div class="q-header"><div class="q-header-left"><span class="q-number">Q-SP-24</span></div><span class="q-flag unanswered">Unanswered</span></div>
         <div class="q-text">I am long a basket put Down-and-In. Am I long or short correlation? Why?</div></div>
