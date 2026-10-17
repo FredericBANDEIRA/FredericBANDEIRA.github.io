@@ -310,6 +310,8 @@ body {
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .project-card::before {
@@ -358,11 +360,38 @@ body {
     background: var(--accent-glow);
     color: var(--accent);
     margin-bottom: 1.25rem;
+    width: fit-content;
 }
 
 .card-badge.muted {
     background: rgba(255, 255, 255, 0.05);
     color: var(--text-muted);
+}
+
+.card-badge.badge-live {
+    background: rgba(0, 212, 170, 0.12);
+    color: var(--accent);
+    border: 1px solid rgba(0, 212, 170, 0.3);
+    box-shadow: 0 0 12px rgba(0, 212, 170, 0.1);
+}
+
+.card-badge.badge-next {
+    background: rgba(99, 102, 241, 0.15);
+    color: #a5b4fc;
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    box-shadow: 0 0 12px rgba(99, 102, 241, 0.15);
+}
+
+.card-badge.badge-planned {
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text-muted);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.card-badge.badge-prep {
+    background: rgba(245, 158, 11, 0.12);
+    color: #fbbf24;
+    border: 1px solid rgba(245, 158, 11, 0.25);
 }
 
 .card-icon {
@@ -382,6 +411,7 @@ body {
     font-size: 0.9rem;
     line-height: 1.7;
     margin-bottom: 1.25rem;
+    flex-grow: 1;
 }
 
 .card-tech {
@@ -405,6 +435,89 @@ body {
     display: flex;
     gap: 0.75rem;
     flex-wrap: wrap;
+    margin-top: auto;
+}
+
+/* --- Academies & Filter System --- */
+.filter-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2.5rem;
+}
+
+.filter-pills {
+    display: inline-flex;
+    gap: 0.4rem;
+    background: rgba(17, 24, 39, 0.7);
+    padding: 0.35rem;
+    border-radius: 9999px;
+    border: 1px solid var(--border);
+    backdrop-filter: blur(16px);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filter-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-family: var(--font);
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.55rem 1.15rem;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+}
+
+.filter-btn:hover {
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.filter-btn.active {
+    background: var(--accent);
+    color: var(--bg);
+    font-weight: 600;
+    box-shadow: 0 0 16px var(--accent-glow);
+}
+
+.filter-btn .pill-count {
+    font-size: 0.72rem;
+    padding: 0.1rem 0.45rem;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text-muted);
+    transition: all 0.2s ease;
+}
+
+.filter-btn.active .pill-count {
+    background: rgba(10, 14, 23, 0.2);
+    color: var(--bg);
+    font-weight: 700;
+}
+
+.academy-card {
+    animation: cardFadeIn 0.35s ease forwards;
+}
+
+.academy-card.is-hidden {
+    display: none !important;
+}
+
+@keyframes cardFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* --- Contact Grid --- */
@@ -497,5 +610,21 @@ body {
 
     .btn {
         justify-content: center;
+    }
+
+    .filter-wrapper {
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding-bottom: 0.5rem;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .filter-pills {
+        border-radius: var(--radius);
+        flex-wrap: nowrap;
+    }
+
+    .filter-btn {
+        flex-shrink: 0;
     }
 }

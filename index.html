@@ -3,10 +3,10 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Frédéric BANDEIRA — Finance & Data</title>
+        <title>Frédéric BANDEIRA — Finance &amp; Data</title>
         <meta
             name="description"
-            content="Portfolio of Frédéric BANDEIRA — MSc Finance & Financial Markets. Quantitative finance projects built with Python, Streamlit, and real-time market data."
+            content="Portfolio of Frédéric BANDEIRA — MSc Finance &amp; Financial Markets. Quantitative applications, market finance educational academies, and empirical research."
         />
         <link rel="stylesheet" href="style.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -23,7 +23,9 @@
         <nav class="nav">
             <a href="#" class="nav-logo">FB</a>
             <div class="nav-links">
-                <a href="#projects">Projects</a>
+                <a href="#projects">Applications</a>
+                <a href="#academies">Academies</a>
+                <a href="#research">Research</a>
                 <a href="#contact">Contact</a>
                 <a
                     href="https://github.com/FredericBANDEIRA"
@@ -44,12 +46,16 @@
                 <p class="hero-subtitle">MSc Finance &amp; Financial Markets</p>
                 <p class="hero-description">
                     Building quantitative finance tools — from market regime
-                    classification to options pricing and cross-asset analytics
-                    — using Python, real-time data, and modern web technologies.
+                    classification to options pricing engines — alongside an 11-topic
+                    educational mastery suite covering Global Markets, Sales &amp; Trading,
+                    and Portfolio Management.
                 </p>
                 <div class="hero-cta">
-                    <a href="#projects" class="btn btn-primary"
-                        >View Projects</a
+                    <a href="#academies" class="btn btn-primary"
+                        >Explore Academies</a
+                    >
+                    <a href="#projects" class="btn btn-secondary"
+                        >View Applications</a
                     >
                     <a href="#contact" class="btn btn-secondary"
                         >Get in Touch</a
@@ -66,18 +72,18 @@
             </div>
         </header>
 
-        <!-- Projects Section -->
+        <!-- Applications & Tools Section -->
         <section id="projects" class="section">
-            <h2 class="section-title">Projects</h2>
+            <h2 class="section-title">Applications &amp; Systems</h2>
             <p class="section-subtitle">
-                Data-driven quantitative finance tools
+                Data-driven quantitative finance tools &amp; pricing engines
             </p>
 
-            <h3 class="category-title">Macro & Low Frequency</h3>
+            <h3 class="category-title">Macro &amp; Low Frequency</h3>
             <div class="projects-grid">
                 <!-- Project 1: Market Regime Monitor -->
                 <article class="project-card featured">
-                    <div class="card-badge">Live (Daily)</div>
+                    <div class="card-badge badge-live">Live (Daily)</div>
                     <div class="card-icon">🌍</div>
                     <h3 class="card-title">Global Macro Monitor</h3>
                     <p class="card-description">
@@ -115,7 +121,7 @@
 
                 <!-- Project 2: Options Pricing Engine -->
                 <article class="project-card featured">
-                    <div class="card-badge">Beta</div>
+                    <div class="card-badge badge-live">Beta</div>
                     <div class="card-icon">📈</div>
                     <h3 class="card-title">Options Pricing Engine</h3>
                     <p class="card-description">
@@ -154,22 +160,108 @@
                 </article>
             </div>
 
-            <h3 class="category-title">Theory &amp; Research</h3>
+            <h3 class="category-title" style="margin-top: 3rem;">Portfolio &amp; Risk</h3>
             <div class="projects-grid">
-                <!-- Project 3: Options Mastery -->
-                <article class="project-card featured">
-                    <div class="card-badge">Notes</div>
+                <article class="project-card coming-soon">
+                    <div class="card-badge muted">Coming Soon</div>
+                    <div class="card-icon">💼</div>
+                    <h3 class="card-title">Quantitative Portfolio Management</h3>
+                    <p class="card-description">
+                        Portfolio construction, factor risk analytics, and
+                        mean-variance &amp; risk parity optimisation tools.
+                    </p>
+                    <div class="card-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Portfolio Optimization</span>
+                        <span class="tech-tag">Risk Analytics</span>
+                    </div>
+                    <div class="card-links">
+                        <a
+                            href="https://github.com/FredericBANDEIRA"
+                            target="_blank"
+                            rel="noopener"
+                            class="btn btn-secondary btn-sm"
+                        >
+                            Follow on GitHub
+                        </a>
+                    </div>
+                </article>
+            </div>
+
+            <h3 class="category-title" style="margin-top: 3rem;">High Frequency &amp; Live Data</h3>
+            <div class="projects-grid">
+                <article class="project-card coming-soon">
+                    <div class="card-badge muted">Coming Soon</div>
+                    <div class="card-icon">⚡</div>
+                    <h3 class="card-title">Real-Time Market Feed</h3>
+                    <p class="card-description">
+                        Live intraday market data streaming, order book snapshots, and
+                        high-frequency market microstructure analytics.
+                    </p>
+                    <div class="card-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">WebSockets</span>
+                        <span class="tech-tag">Microstructure</span>
+                    </div>
+                    <div class="card-links">
+                        <a
+                            href="https://github.com/FredericBANDEIRA"
+                            target="_blank"
+                            rel="noopener"
+                            class="btn btn-secondary btn-sm"
+                        >
+                            Follow on GitHub
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Market Finance Academies Section (Option B: Filter Pills Showcase) -->
+        <section id="academies" class="section">
+            <h2 class="section-title">Market Finance Academies</h2>
+            <p class="section-subtitle">
+                A suite of 11 standalone educational platforms covering the full breadth of Global Markets knowledge. Each built with interactive visualizers, KaTeX formulas, and interview question sets following the Options Mastery blueprint.
+            </p>
+
+            <!-- Filter Pills -->
+            <div class="filter-wrapper">
+                <div class="filter-pills" role="tablist" aria-label="Academies category filter">
+                    <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">
+                        All <span class="pill-count">11</span>
+                    </button>
+                    <button class="filter-btn" data-filter="rates-credit" role="tab" aria-selected="false">
+                        Rates &amp; Credit <span class="pill-count">4</span>
+                    </button>
+                    <button class="filter-btn" data-filter="derivatives" role="tab" aria-selected="false">
+                        Derivatives &amp; Structuring <span class="pill-count">2</span>
+                    </button>
+                    <button class="filter-btn" data-filter="macro-fx" role="tab" aria-selected="false">
+                        Macro &amp; Currencies <span class="pill-count">3</span>
+                    </button>
+                    <button class="filter-btn" data-filter="equities-portfolio" role="tab" aria-selected="false">
+                        Equities &amp; Portfolio <span class="pill-count">3</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Academies Grid -->
+            <div class="projects-grid" id="academies-grid">
+                <!-- 1. Options Mastery (Live) -->
+                <article class="project-card featured academy-card" data-categories="derivatives">
+                    <div class="card-badge badge-live">Live • Phase 1</div>
                     <div class="card-icon">📚</div>
                     <h3 class="card-title">Options Mastery</h3>
                     <p class="card-description">
                         A comprehensive, mathematical, and intuitive guide to
                         derivatives pricing, hedging mechanics, and the Greeks.
                         Consolidates structured notes on forwards, futures,
-                        volatility, and option fundamentals from the Derivatives Academy.
+                        volatility surfaces, and Black-Scholes pricing with interactive canvas charts.
                     </p>
                     <div class="card-tech">
                         <span class="tech-tag">HTML</span>
                         <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">KaTeX</span>
                         <span class="tech-tag">Quantitative Finance</span>
                         <span class="tech-tag">Derivatives</span>
                     </div>
@@ -192,20 +284,57 @@
                         </a>
                     </div>
                 </article>
-            </div>
 
-            <h3 class="category-title">Portfolio &amp; Risk</h3>
-            <div class="projects-grid">
-                <article class="project-card coming-soon">
-                    <div class="card-badge muted">Coming Soon</div>
-                    <div class="card-icon">💼</div>
-                    <h3 class="card-title">Quantitative Portfolio Management</h3>
+                <!-- 2. Fixed Income Mastery (Live) -->
+                <article class="project-card featured academy-card" data-categories="rates-credit">
+                    <div class="card-badge badge-live">Live • Phase 1</div>
+                    <div class="card-icon">🏛️</div>
+                    <h3 class="card-title">Fixed Income Mastery</h3>
                     <p class="card-description">
-                        Portfolio construction, risk analytics, and
-                        optimisation tools. More details coming soon.
+                        A rigorous guide to bond pricing, yield curves, duration, convexity, swaps, and interest rate risk. Features interactive yield curve bootstrapping, DV01 hedging simulators, and interview cheatsheets.
                     </p>
                     <div class="card-tech">
-                        <span class="tech-tag">TBD</span>
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">KaTeX</span>
+                        <span class="tech-tag">Fixed Income</span>
+                        <span class="tech-tag">Rates</span>
+                        <span class="tech-tag">Duration</span>
+                    </div>
+                    <div class="card-links">
+                        <a
+                            href="https://FredericBANDEIRA.github.io/Fixed-Income-Mastery/"
+                            target="_blank"
+                            rel="noopener"
+                            class="btn btn-primary btn-sm"
+                        >
+                            Read Notes →
+                        </a>
+                        <a
+                            href="https://github.com/FredericBANDEIRA/Fixed-Income-Mastery"
+                            target="_blank"
+                            rel="noopener"
+                            class="btn btn-secondary btn-sm"
+                        >
+                            Source Code
+                        </a>
+                    </div>
+                </article>
+
+                <!-- 3. Credit Academy (Blueprint) -->
+                <article class="project-card academy-card" data-categories="rates-credit">
+                    <div class="card-badge badge-planned">Blueprint • Phase 1</div>
+                    <div class="card-icon">🛡️</div>
+                    <h3 class="card-title">Credit Academy</h3>
+                    <p class="card-description">
+                        CDS mechanics, credit spreads, default modeling, and credit curve construction — from fundamentals (recovery rates, hazard rates) to CDX/iTraxx index tranches and credit event auctions.
+                    </p>
+                    <div class="card-tech">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">Credit</span>
+                        <span class="tech-tag">CDS</span>
+                        <span class="tech-tag">Hazard Rates</span>
                     </div>
                     <div class="card-links">
                         <a
@@ -214,24 +343,247 @@
                             rel="noopener"
                             class="btn btn-secondary btn-sm"
                         >
-                            Follow on GitHub
+                            Planned Phase 1
+                        </a>
+                    </div>
+                </article>
+
+                <!-- 4. Money Markets & Repo Academy (Blueprint) -->
+                <article class="project-card academy-card" data-categories="rates-credit">
+                    <div class="card-badge badge-planned">Blueprint • Phase 1</div>
+                    <div class="card-icon">🏦</div>
+                    <h3 class="card-title">Money Markets &amp; Repo</h3>
+                    <p class="card-description">
+                        T-bills, repo mechanics, central bank operations, and the plumbing of short-term funding markets. Explores collateral velocity, SOFR/ESTR dynamics, and balance sheet constraints.
+                    </p>
+                    <div class="card-tech">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">Money Markets</span>
+                        <span class="tech-tag">Repo</span>
+                        <span class="tech-tag">Funding</span>
+                    </div>
+                    <div class="card-links">
+                        <a
+                            href="https://github.com/FredericBANDEIRA"
+                            target="_blank"
+                            rel="noopener"
+                            class="btn btn-secondary btn-sm"
+                        >
+                            Planned Phase 1
+                        </a>
+                    </div>
+                </article>
+
+                <!-- 5. Macro & Rates Strategy Academy (Blueprint) -->
+                <article class="project-card academy-card" data-categories="rates-credit macro-fx">
+                    <div class="card-badge badge-planned">Blueprint • Phase 3</div>
+                    <div class="card-icon">🌐</div>
+                    <h3 class="card-title">Macro &amp; Rates Strategy</h3>
+                    <p class="card-description">
+                        Central bank mechanics, yield curve trades (steepeners, flatteners, butterflies), economic surprise indicators, and cross-asset macro regime allocation frameworks.
+                    </p>
+                    <div class="card-tech">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">Macro</span>
+                        <span class="tech-tag">Rates Strategy</span>
+                        <span class="tech-tag">Central Banks</span>
+                    </div>
+                    <div class="card-links">
+                        <a
+                            href="https://github.com/FredericBANDEIRA"
+                            target="_blank"
+                            rel="noopener"
+                            class="btn btn-secondary btn-sm"
+                        >
+                            Planned Phase 3
+                        </a>
+                    </div>
+                </article>
+
+                <!-- 6. Structured Products Academy (Blueprint) -->
+                <article class="project-card academy-card" data-categories="derivatives">
+                    <div class="card-badge badge-planned">Blueprint • Phase 4</div>
+                    <div class="card-icon">🧩</div>
+                    <h3 class="card-title">Structured Products</h3>
+                    <p class="card-description">
+                        A product catalog of structured notes across asset classes — payoffs, autocall triggers, barrier sensitivities, desk decomposition, and secondary market lifecycle.
+                    </p>
+                    <div class="card-tech">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">Structured Products</span>
+                        <span class="tech-tag">Derivatives</span>
+                    </div>
+                    <div class="card-links">
+                        <a
+                            href="https://github.com/FredericBANDEIRA"
+                            target="_blank"
+                            rel="noopener"
+                            class="btn btn-secondary btn-sm"
+                        >
+                            Planned Phase 4
+                        </a>
+                    </div>
+                </article>
+
+                <!-- 7. FX Academy (Blueprint) -->
+                <article class="project-card academy-card" data-categories="macro-fx">
+                    <div class="card-badge badge-planned">Blueprint • Phase 2</div>
+                    <div class="card-icon">💱</div>
+                    <h3 class="card-title">FX Academy</h3>
+                    <p class="card-description">
+                        Currency conventions, covered &amp; uncovered interest parity, FX swaps, carry trade dynamics, volatility surfaces (risk reversals, flys), and macro drivers from G10 to Emerging Markets.
+                    </p>
+                    <div class="card-tech">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">FX</span>
+                        <span class="tech-tag">Macro</span>
+                        <span class="tech-tag">Carry</span>
+                    </div>
+                    <div class="card-links">
+                        <a
+                            href="https://github.com/FredericBANDEIRA"
+                            target="_blank"
+                            rel="noopener"
+                            class="btn btn-secondary btn-sm"
+                        >
+                            Planned Phase 2
+                        </a>
+                    </div>
+                </article>
+
+                <!-- 8. Commodities Academy (Blueprint) -->
+                <article class="project-card academy-card" data-categories="macro-fx">
+                    <div class="card-badge badge-planned">Blueprint • Phase 2</div>
+                    <div class="card-icon">🛢️</div>
+                    <h3 class="card-title">Commodities Academy</h3>
+                    <p class="card-description">
+                        Futures curves (contango, backwardation), storage economics, convenience yields, refining margins (crack spreads), and physical delivery dynamics across energy, metals, and agriculture.
+                    </p>
+                    <div class="card-tech">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">Commodities</span>
+                        <span class="tech-tag">Futures</span>
+                        <span class="tech-tag">Energy</span>
+                    </div>
+                    <div class="card-links">
+                        <a
+                            href="https://github.com/FredericBANDEIRA"
+                            target="_blank"
+                            rel="noopener"
+                            class="btn btn-secondary btn-sm"
+                        >
+                            Planned Phase 2
+                        </a>
+                    </div>
+                </article>
+
+                <!-- 9. Equity Academy (Blueprint) -->
+                <article class="project-card academy-card" data-categories="equities-portfolio">
+                    <div class="card-badge badge-planned">Blueprint • Phase 2</div>
+                    <div class="card-icon">📊</div>
+                    <h3 class="card-title">Equity Academy</h3>
+                    <p class="card-description">
+                        Valuation frameworks (DCF, multiples), 3-statement financial modeling, sector rotation across the business cycle, and index/ETF mechanics including tracking error and rebalancing.
+                    </p>
+                    <div class="card-tech">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">Equity</span>
+                        <span class="tech-tag">Valuation</span>
+                        <span class="tech-tag">DCF</span>
+                    </div>
+                    <div class="card-links">
+                        <a
+                            href="https://github.com/FredericBANDEIRA"
+                            target="_blank"
+                            rel="noopener"
+                            class="btn btn-secondary btn-sm"
+                        >
+                            Planned Phase 2
+                        </a>
+                    </div>
+                </article>
+
+                <!-- 10. Portfolio Academy (Blueprint) -->
+                <article class="project-card academy-card" data-categories="equities-portfolio">
+                    <div class="card-badge badge-planned">Blueprint • Phase 5</div>
+                    <div class="card-icon">💼</div>
+                    <h3 class="card-title">Portfolio Academy</h3>
+                    <p class="card-description">
+                        Modern portfolio theory, mean-variance optimization, Black-Litterman, multi-factor models (Fama-French), risk budgeting, and Brinson performance attribution.
+                    </p>
+                    <div class="card-tech">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">Portfolio Management</span>
+                        <span class="tech-tag">Risk Budgeting</span>
+                    </div>
+                    <div class="card-links">
+                        <a
+                            href="https://github.com/FredericBANDEIRA"
+                            target="_blank"
+                            rel="noopener"
+                            class="btn btn-secondary btn-sm"
+                        >
+                            Planned Phase 5
+                        </a>
+                    </div>
+                </article>
+
+                <!-- 11. Market Microstructure Academy (Blueprint) -->
+                <article class="project-card academy-card" data-categories="equities-portfolio">
+                    <div class="card-badge badge-planned">Blueprint • Phase 6</div>
+                    <div class="card-icon">⚡</div>
+                    <h3 class="card-title">Market Microstructure</h3>
+                    <p class="card-description">
+                        Limit order book dynamics, market making models, adverse selection, price discovery, execution algorithms (TWAP, VWAP, IS), and optimal market impact execution.
+                    </p>
+                    <div class="card-tech">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">Microstructure</span>
+                        <span class="tech-tag">Execution</span>
+                        <span class="tech-tag">Order Books</span>
+                    </div>
+                    <div class="card-links">
+                        <a
+                            href="https://github.com/FredericBANDEIRA"
+                            target="_blank"
+                            rel="noopener"
+                            class="btn btn-secondary btn-sm"
+                        >
+                            Planned Phase 6
                         </a>
                     </div>
                 </article>
             </div>
+        </section>
 
-            <h3 class="category-title">High Frequency &amp; Live Data</h3>
+        <!-- Research & Insights Section -->
+        <section id="research" class="section">
+            <h2 class="section-title">Research &amp; Insights</h2>
+            <p class="section-subtitle">
+                Quantitative research notes, market structure analysis, and systematic strategy backtests
+            </p>
+
             <div class="projects-grid">
-                <article class="project-card coming-soon">
-                    <div class="card-badge muted">Coming Soon</div>
-                    <div class="card-icon">⚡</div>
-                    <h3 class="card-title">Real-Time Market Feed</h3>
+                <article class="project-card featured">
+                    <div class="card-badge badge-prep">In Preparation</div>
+                    <div class="card-icon">📑</div>
+                    <h3 class="card-title">Quantitative Research &amp; Market Notes</h3>
                     <p class="card-description">
-                        Live intraday market data streaming and
-                        higher-frequency analytics. More details coming soon.
+                        Empirical investigations and working papers focused on systematic volatility strategies, sovereign curve relative value, and cross-asset regime transitions. Each paper includes documented methodology, Python backtesting code, and open-source data pipelines.
                     </p>
                     <div class="card-tech">
-                        <span class="tech-tag">TBD</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">LaTeX</span>
+                        <span class="tech-tag">Empirical Finance</span>
+                        <span class="tech-tag">Backtesting</span>
                     </div>
                     <div class="card-links">
                         <a
@@ -295,5 +647,37 @@
         <footer class="footer">
             <p>&copy; 2026 Frédéric BANDEIRA · <a href="https://FredericBANDEIRA.github.io/q-prep-8x92k/" style="color: inherit; text-decoration: none; cursor: text; -webkit-tap-highlight-color: transparent; user-select: none;">Built</a> with HTML &amp; CSS</p>
         </footer>
+
+        <!-- Script for Category Filtering -->
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const filterButtons = document.querySelectorAll('.filter-btn');
+                const academyCards = document.querySelectorAll('.academy-card');
+
+                filterButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        const filter = button.getAttribute('data-filter');
+
+                        // Update active state
+                        filterButtons.forEach(btn => {
+                            btn.classList.remove('active');
+                            btn.setAttribute('aria-selected', 'false');
+                        });
+                        button.classList.add('active');
+                        button.setAttribute('aria-selected', 'true');
+
+                        // Filter cards
+                        academyCards.forEach(card => {
+                            const categories = (card.getAttribute('data-categories') || '').split(' ');
+                            if (filter === 'all' || categories.includes(filter)) {
+                                card.classList.remove('is-hidden');
+                            } else {
+                                card.classList.add('is-hidden');
+                            }
+                        });
+                    });
+                });
+            });
+        </script>
     </body>
 </html>
